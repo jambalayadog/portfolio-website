@@ -1,0 +1,12 @@
+{
+  // Cloudflare config for deploying this static Astro site as a
+  // "Worker with static assets" (the unified Workers/Pages model).
+  // `npm run build` produces ./dist; `wrangler deploy` uploads it.
+  // There is no Worker script — this is an assets-only deployment.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-website",
+  "compatibility_date": "2026-06-27",
+  "assets": {
+    "directory": "./dist"
+  }
+}
