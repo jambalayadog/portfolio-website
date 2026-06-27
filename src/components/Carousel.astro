@@ -1,12 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import { toSlides } from '../lib/media';
+import { resolveImage } from '../lib/images';
 
 interface Props {
   media: { type: 'image' | 'video'; url: string; caption?: string }[];
   title: string;
 }
 const { media, title } = Astro.props;
-const slides = toSlides(media);
+const slides = toSlides(media).map((s) => ({
+  ...s,
+  img: s.kind === 'image' ? resolveImage(s.src) : null,
+  thumbImg: s.kind === 'image' ? resolveImage(s.thumb) : null,
+}));
 const single = slides.length <= 1;
 const firstCaption = slides[0]?.caption ?? '';
 ---
@@ -16,8 +22,8 @@ const firstCaption = slides[0]?.caption ?? '';
     <div class="carousel__stage">
       {slides.map((s, i) => (
         <div class="carousel__slide" class:list={[{ 'is-active': i === 0 }]} data-slide={i} data-caption={s.caption ?? ''}>
-          {s.kind === 'image' ? (
-            <img src={s.src} alt={s.caption ?? `${title} — image ${i + 1}`} loading="lazy" />
+          {s.kind === 'image' && s.img ? (
+            <Image src={s.img} alt={s.caption ?? `${title} — image ${i + 1}`} width={1200} loading={i === 0 ? 'eager' : 'lazy'} />
           ) : (
             <button
               class="yt-facade"
@@ -39,7 +45,13 @@ const firstCaption = slides[0]?.caption ?? '';
     <div class="carousel__thumbs" role="tablist">
       {slides.map((s, i) => (
         <button class="carousel__thumb" class:list={[{ 'is-active': i === 0 }]} data-thumb={i} type="button" aria-label={`Go to slide ${i + 1}`}>
-          {s.thumb ? <img src={s.thumb} alt="" loading="lazy" /> : <span></span>}
+          {s.kind === 'image' && s.thumbImg ? (
+            <Image src={s.thumbImg} alt="" width={120} loading="lazy" />
+          ) : s.thumb ? (
+            <img src={s.thumb} alt="" loading="lazy" />
+          ) : (
+            <span></span>
+          )}
         </button>
       ))}
     </div>

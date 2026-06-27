@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import { resolveImage } from '../lib/images';
+
 interface Props {
   slug: string;
   title: string;
@@ -8,11 +11,12 @@ interface Props {
   status?: string;
 }
 const { slug, title, studio, boxart, year, status } = Astro.props;
+const art = resolveImage(boxart);
 ---
 
 <a class="card" href={`/work/${slug}`}>
   <div class="card__art">
-    <img src={boxart} alt={`${title} box art`} loading="lazy" width="300" height="400" />
+    {art && <Image src={art} alt={`${title} box art`} width={400} loading="lazy" />}
   </div>
   <div class="card__body">
     <h3 class="card__title">{title}</h3>

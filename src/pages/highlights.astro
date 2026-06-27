@@ -1,10 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveImage } from '../lib/images';
 
 const items = (await getCollection('highlights')).sort((a, b) => a.data.order - b.data.order);
 const rendered = await Promise.all(
-  items.map(async (item) => ({ item, Content: (await render(item)).Content })),
+  items.map(async (item) => ({
+    item,
+    Content: (await render(item)).Content,
+    img: resolveImage(item.data.image),
+  })),
 );
 ---
 
@@ -17,11 +23,11 @@ const rendered = await Promise.all(
     </header>
 
     <div class="highlight-list">
-      {rendered.map(({ item, Content }) => (
+      {rendered.map(({ item, Content, img }) => (
         <div class="highlight">
-          {item.data.image && (
+          {img && (
             <div class="highlight__img">
-              <img src={item.data.image} alt={item.data.title} loading="lazy" />
+              <Image src={img} alt={item.data.title} width={480} loading="lazy" />
             </div>
           )}
           <div class="highlight__body">
