@@ -1,0 +1,24 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  studio: string;
+  boxart: string;
+  year?: number;
+  status?: string;
+}
+const { slug, title, studio, boxart, year, status } = Astro.props;
+---
+
+<a class="card" href={`/work/${slug}`}>
+  <div class="card__art">
+    <img src={boxart} alt={`${title} box art`} loading="lazy" width="300" height="400" />
+  </div>
+  <div class="card__body">
+    <h3 class="card__title">{title}</h3>
+    <p class="card__meta">
+      <span>{studio}</span>
+      {year ? <span>· {year}</span> : status ? <span class="badge">{status}</span> : null}
+    </p>
+  </div>
+</a>

@@ -1,0 +1,95 @@
+---
+import { toSlides } from '../lib/media';
+
+interface Props {
+  media: { type: 'image' | 'video'; url: string; caption?: string }[];
+  title: string;
+}
+const { media, title } = Astro.props;
+const slides = toSlides(media);
+const single = slides.length <= 1;
+const firstCaption = slides[0]?.caption ?? '';
+---
+
+{slides.length > 0 && (
+  <div class={`carousel${single ? ' is-single' : ''}`} data-carousel>
+    <div class="carousel__stage">
+      {slides.map((s, i) => (
+        <div class="carousel__slide" class:list={[{ 'is-active': i === 0 }]} data-slide={i} data-caption={s.caption ?? ''}>
+          {s.kind === 'image' ? (
+            <img src={s.src} alt={s.caption ?? `${title} — image ${i + 1}`} loading="lazy" />
+          ) : (
+            <button
+              class="yt-facade"
+              type="button"
+              data-embed={`${s.src}?autoplay=1`}
+              style={`background-image:url('${s.thumb}')`}
+              aria-label={`Play video: ${s.caption ?? title}`}
+            ></button>
+          )}
+        </div>
+      ))}
+
+      <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Previous">‹</button>
+      <button class="carousel__nav carousel__nav--next" type="button" aria-label="Next">›</button>
+    </div>
+
+    <div class="carousel__caption" data-caption-out>{firstCaption}</div>
+
+    <div class="carousel__thumbs" role="tablist">
+      {slides.map((s, i) => (
+        <button class="carousel__thumb" class:list={[{ 'is-active': i === 0 }]} data-thumb={i} type="button" aria-label={`Go to slide ${i + 1}`}>
+          {s.thumb ? <img src={s.thumb} alt="" loading="lazy" /> : <span></span>}
+        </button>
+      ))}
+    </div>
+  </div>
+)}
+
+<script>
+  function initCarousel(root: HTMLElement) {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+    const thumbs = Array.from(root.querySelectorAll<HTMLElement>('[data-thumb]'));
+    const captionOut = root.querySelector<HTMLElement>('[data-caption-out]');
+    let index = 0;
+
+    function show(next: number) {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+      thumbs.forEach((t, i) => t.classList.toggle('is-active', i === index));
+      if (captionOut) captionOut.textContent = slides[index].dataset.caption ?? '';
+    }
+
+    root.querySelector('.carousel__nav--prev')?.addEventListener('click', () => show(index - 1));
+    root.querySelector('.carousel__nav--next')?.addEventListener('click', () => show(index + 1));
+    thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+
+    // YouTube facade -> swap in the real iframe on click.
+    root.querySelectorAll<HTMLElement>('.yt-facade').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const embed = btn.dataset.embed;
+        if (!embed) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = embed;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        btn.replaceWith(iframe);
+      });
+    });
+
+    // Keyboard + swipe.
+    root.tabIndex = 0;
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+    let startX = 0;
+    root.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
+    root.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) show(dx < 0 ? index + 1 : index - 1);
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+</script>

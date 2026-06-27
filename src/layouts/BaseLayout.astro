@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Jordan Watt — Game Designer. 20+ years across AAA franchises.' } = Astro.props;
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+const nav = [
+  { href: '/', label: 'Work' },
+  { href: '/highlights', label: 'Highlights' },
+  { href: '/about', label: 'About' },
+  { href: '/resume', label: 'Resume' },
+];
+const year = 2026;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/">Jordan Watt</a>
+        <nav class="nav" aria-label="Primary">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {year} Jordan Watt · build · play · iterate</span>
+        <span class="links">
+          <a href="/resume">Resume</a>
+          <a href="https://github.com/jambalayadog" rel="me noopener" target="_blank">GitHub</a>
+          <a href="mailto:jwatt4000@gmail.com">Email</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const entry = await getEntry('pages', 'about');
+if (!entry) throw new Error('Missing pages/about.md');
+const { Content } = await render(entry);
+---
+
+<BaseLayout title="About — Jordan Watt">
+  <article class="article container">
+    <header class="article__head">
+      <p class="eyebrow">{entry.data.subtitle}</p>
+      <h1>{entry.data.title}</h1>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

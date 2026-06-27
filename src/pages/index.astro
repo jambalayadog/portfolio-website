@@ -1,77 +1,39 @@
 ---
-// Phase 1 placeholder. Proves the build + deploy pipeline works end to end.
-// The real home page (hero/about + work grid) lands in Phase 3.
-const name = 'Jordan Watt';
-const tagline = 'Game Designer';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={`${name} — ${tagline}. Portfolio coming soon.`} />
-    <title>{name} — {tagline}</title>
-  </head>
-  <body>
-    <main>
-      <p class="eyebrow">build · play · iterate</p>
-      <h1>{name}</h1>
-      <p class="tagline">{tagline}</p>
-      <p class="note">Portfolio in progress — new site coming soon.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout title="Jordan Watt — Game Designer">
+  <section class="hero container">
+    <p class="eyebrow">build · play · iterate</p>
+    <h1>Jordan Watt</h1>
+    <p class="tagline">Expert Game Designer &amp; Technical Designer</p>
+    <p class="intro">
+      20+ years delivering high-quality gameplay across AAA franchises — Gears of War,
+      Star Wars, Need for Speed, Plants vs. Zombies, Skate, and more. Bridging creative
+      vision with technical execution, from concept to live service.
+    </p>
+  </section>
 
-<style is:global>
-  /* Theme tokens — the single place colors/spacing live. Expanded in Phase 3. */
-  :root {
-    --bg: #0f1115;
-    --fg: #e8eaed;
-    --muted: #9aa0a6;
-    --accent: #5b9dff;
-    --space: clamp(1rem, 2vw, 2rem);
-    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-
-  html, body { margin: 0; height: 100%; }
-
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font);
-    display: grid;
-    place-items: center;
-    padding: var(--space);
-  }
-
-  main { text-align: center; max-width: 32rem; }
-
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin: 0 0 1.5rem;
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    line-height: 1.05;
-    margin: 0;
-  }
-
-  .tagline {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: var(--muted);
-    margin: 0.5rem 0 0;
-  }
-
-  .note {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-top: 2.5rem;
-  }
-</style>
+  <section class="section container">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <a href="/about">About me →</a>
+    </div>
+    <div class="grid">
+      {work.map((entry) => (
+        <WorkCard
+          slug={entry.id}
+          title={entry.data.title}
+          studio={entry.data.studio}
+          boxart={entry.data.boxart}
+          year={entry.data.year}
+          status={entry.data.status}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

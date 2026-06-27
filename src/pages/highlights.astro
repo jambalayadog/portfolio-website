@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const items = (await getCollection('highlights')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  items.map(async (item) => ({ item, Content: (await render(item)).Content })),
+);
+---
+
+<BaseLayout title="Highlights — Jordan Watt" description="Side projects, hobby builds, and career highlights.">
+  <article class="article container">
+    <header class="article__head">
+      <p class="eyebrow">Extras</p>
+      <h1>Highlights</h1>
+      <p class="article__meta">Side projects, hobby builds, and a few career moments.</p>
+    </header>
+
+    <div class="highlight-list">
+      {rendered.map(({ item, Content }) => (
+        <div class="highlight">
+          {item.data.image && (
+            <div class="highlight__img">
+              <img src={item.data.image} alt={item.data.title} loading="lazy" />
+            </div>
+          )}
+          <div class="highlight__body">
+            <h3>{item.data.title}</h3>
+            <div class="prose"><Content /></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </article>
+</BaseLayout>
