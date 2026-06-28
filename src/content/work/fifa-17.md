@@ -1,7 +1,7 @@
 ---
 title: "FIFA 2017"
 studio: "EA Vancouver"
-role: "Game Designer"
+role: "Senior Game Designer"
 focus: "Cinematics"
 year: 2016
 order: 6

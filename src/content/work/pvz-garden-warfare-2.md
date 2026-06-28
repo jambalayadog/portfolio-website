@@ -1,7 +1,7 @@
 ---
 title: "Plants vs Zombies: Garden Warfare 2"
 studio: "PopCap / EA"
-role: "Game Designer"
+role: "Senior Game Designer"
 focus: "Game Modes"
 year: 2016
 order: 7

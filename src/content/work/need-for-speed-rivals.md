@@ -1,7 +1,7 @@
 ---
 title: "Need for Speed: Rivals"
 studio: "Ghost Games / Criterion"
-role: "Game Designer"
+role: "Senior Game Designer"
 focus: "Systems Design"
 year: 2013
 order: 9

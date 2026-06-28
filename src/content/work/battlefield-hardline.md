@@ -1,7 +1,7 @@
 ---
 title: "Battlefield: Hardline"
 studio: "Visceral Games"
-role: "Game Designer"
+role: "Senior Game Designer"
 focus: "Level & Encounter Design"
 year: 2015
 order: 8
