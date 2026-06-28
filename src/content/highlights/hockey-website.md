@@ -8,4 +8,4 @@ I made this website to practice web development.  Data is scraped automatically,
 
 Built with javascript, html, css, node, express, react, Digital Ocean, ubuntu, nhl.com, etc
 
-[FantasyHockeyCentral](https://fantasyhockeycentral.com)
+[SlateShowdown.com](https://slateshowdown.com)

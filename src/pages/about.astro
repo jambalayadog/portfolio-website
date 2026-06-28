@@ -1,10 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveImage } from '../lib/images';
+import breadth from '../data/breadth.json';
 
 const entry = await getEntry('pages', 'about');
 if (!entry) throw new Error('Missing pages/about.md');
 const { Content } = await render(entry);
+
+const groups = [
+  { title: 'Genres & Experiences', items: breadth.genres },
+  { title: 'Features & Ownership', items: breadth.features },
+];
 ---
 
 <BaseLayout title="About — Jordan Watt">
@@ -16,5 +24,22 @@ const { Content } = await render(entry);
     <div class="prose">
       <Content />
     </div>
+
+    {groups.map((g) => (
+      <section class="section">
+        <div class="section-head"><h2>{g.title}</h2></div>
+        <div class="matrix">
+          {g.items.map((it) => {
+            const img = resolveImage(it.boxart);
+            return (
+              <div class="matrix__item">
+                {img && <Image src={img} alt="" width={96} loading="lazy" />}
+                <span class="matrix__label">{it.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    ))}
   </article>
 </BaseLayout>
