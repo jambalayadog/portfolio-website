@@ -1,11 +1,25 @@
 ---
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import skills from '../data/skills.json';
 
 const entry = await getEntry('pages', 'resume');
 if (!entry) throw new Error('Missing pages/resume.md');
 const { Content } = await render(entry);
 const pdf = entry.data.resumePdf;
+
+// Inline the monochrome SVGs so they inherit the theme color via currentColor.
+const rawIcons = import.meta.glob<string>('../assets/skills/*.svg', {
+  query: '?raw',
+  eager: true,
+  import: 'default',
+});
+const icon = (name: string) => {
+  const key = Object.keys(rawIcons).find((k) => k.endsWith('/' + name + '.svg'));
+  return key ? rawIcons[key] : '';
+};
+
+const groups = Object.entries(skills) as [string, { label: string; icon: string }[]][];
 ---
 
 <BaseLayout title="Resume — Jordan Watt">
@@ -15,8 +29,23 @@ const pdf = entry.data.resumePdf;
       <h1>{entry.data.title}</h1>
       {pdf && <a class="btn" href={pdf} target="_blank" rel="noopener">Download PDF ↓</a>}
     </header>
+
     <div class="prose">
       <Content />
     </div>
+
+    {groups.map(([title, items]) => (
+      <section class="section skill-group">
+        <div class="section-head"><h2>{title}</h2></div>
+        <div class="skill-grid">
+          {items.map((it) => (
+            <div class="skill">
+              <span class="skill__icon" set:html={icon(it.icon)} />
+              <span class="skill__label">{it.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
   </article>
 </BaseLayout>

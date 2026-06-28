@@ -1,0 +1,25 @@
+{
+  "Process & Collaboration": [
+    { "label": "Pitch", "icon": "pitch" },
+    { "label": "Miro", "icon": "miro" },
+    { "label": "Prototype", "icon": "prototype" },
+    { "label": "Figma", "icon": "figma" },
+    { "label": "Document", "icon": "document" },
+    { "label": "Jira", "icon": "jira" },
+    { "label": "Roadmap", "icon": "roadmap" },
+    { "label": "Review", "icon": "review" },
+    { "label": "Pipeline & Tools", "icon": "pipeline-tools" },
+    { "label": "Demo & Present", "icon": "demo-present" }
+  ],
+  "Game Engines & Scripting": [
+    { "label": "Unreal", "icon": "unreal" },
+    { "label": "Blueprint", "icon": "blueprint" },
+    { "label": "Unity", "icon": "unity" },
+    { "label": "JavaScript", "icon": "javascript" },
+    { "label": "Godot", "icon": "godot" },
+    { "label": "Python", "icon": "python" },
+    { "label": "Frostbite", "icon": "frostbite" },
+    { "label": "Github", "icon": "github" },
+    { "label": "Web stack", "icon": "web-stack" }
+  ]
+}

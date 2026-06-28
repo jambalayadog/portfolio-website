@@ -13,6 +13,8 @@
     "astro": "^7.0.0"
   },
   "devDependencies": {
+    "lucide-static": "^1.22.0",
+    "simple-icons": "^16.24.1",
     "wrangler": "^4.105.0"
   }
 }
