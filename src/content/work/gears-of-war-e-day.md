@@ -2,7 +2,7 @@
 title: "Gears of War: E-Day"
 studio: "People Can Fly"
 role: "Principal Technical Level Designer"
-status: "In development"
+focus: "Feature & Workflow Design"
 order: 1
 boxart: "/images/portfolio/eday.png"
 media:

@@ -2,7 +2,7 @@
 title: "Sumo Digital"
 studio: "Sumo Digital"
 role: "Principal Technical Designer"
-status: "Unannounced"
+focus: "Core Gameplay Feature"
 order: 2
 boxart: "/images/portfolio/534px-Sumo_Digital_(2019).webp"
 media:

@@ -21,8 +21,10 @@ const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
   schema: z.object({
     title: z.string(),
+    cardTitle: z.string().optional(), // overrides the displayed grid label (e.g. QA games list)
     studio: z.string(),
-    role: z.string(),
+    role: z.string(), // job title — chip line 1
+    focus: z.string().optional(), // specialty — chip line 2
     year: z.number().optional(),
     status: z.string().optional(),
     order: z.number(),

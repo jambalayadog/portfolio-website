@@ -1,7 +1,9 @@
 ---
 title: "QA Development Manager"
+cardTitle: "NFS · FIFA · Madden · Tiger · NBA · NHL"
 studio: "EA QA"
-role: "QA Manager"
+role: "QA Development Manager"
+focus: "Online & Compliance"
 year: 2005
 order: 16
 boxart: "/images/portfolio/Madden06.jpg"

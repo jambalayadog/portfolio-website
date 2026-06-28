@@ -2,6 +2,7 @@
 title: "Plants vs Zombies: Battle for Neighborville"
 studio: "PopCap / EA"
 role: "Senior Game Designer"
+focus: "Bosses & Live Activities"
 year: 2019
 order: 4
 boxart: "/images/portfolio/PVZBFN.jpg"

@@ -2,6 +2,7 @@
 title: "FIFA 2017"
 studio: "EA Vancouver"
 role: "Game Designer"
+focus: "Cinematics"
 year: 2016
 order: 6
 boxart: "/images/portfolio/FIFA_17_cover.jpg"

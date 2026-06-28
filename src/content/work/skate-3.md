@@ -2,6 +2,7 @@
 title: "Skate 3"
 studio: "EA Black Box"
 role: "Game Designer"
+focus: "Challenges & Skate School"
 year: 2010
 order: 13
 boxart: "/images/portfolio/Skate-3-Boxart.jpg"

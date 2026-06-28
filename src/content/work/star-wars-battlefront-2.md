@@ -2,6 +2,7 @@
 title: "Star Wars Battlefront 2"
 studio: "EA Motive"
 role: "Senior Game Designer"
+focus: "Mission Design"
 year: 2017
 order: 5
 boxart: "/images/portfolio/SWBF2_box.jpg"

@@ -2,6 +2,7 @@
 title: "Skate"
 studio: "EA Black Box"
 role: "Game Designer"
+focus: "Challenge Design"
 year: 2007
 order: 15
 boxart: "/images/portfolio/Skate.png"

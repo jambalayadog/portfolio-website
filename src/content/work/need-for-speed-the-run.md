@@ -2,6 +2,7 @@
 title: "Need for Speed: The Run"
 studio: "EA Black Box"
 role: "Game Designer"
+focus: "Story & Challenge Design"
 year: 2011
 order: 12
 boxart: "/images/portfolio/Needforspeedtheruncover.jpg"

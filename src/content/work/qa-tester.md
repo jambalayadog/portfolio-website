@@ -1,7 +1,9 @@
 ---
 title: "QA Tester"
+cardTitle: "Burnout · Fight Night · Time Splitters"
 studio: "EA QA"
 role: "QA Tester"
+focus: "EA Sports Online"
 year: 2003
 order: 17
 boxart: "/images/portfolio/Need_for_Speed_Underground_cover.jpg"

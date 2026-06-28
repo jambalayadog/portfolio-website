@@ -28,8 +28,11 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
         <WorkCard
           slug={entry.id}
           title={entry.data.title}
+          cardTitle={entry.data.cardTitle}
           studio={entry.data.studio}
           boxart={entry.data.boxart}
+          role={entry.data.role}
+          focus={entry.data.focus}
           year={entry.data.year}
           status={entry.data.status}
         />

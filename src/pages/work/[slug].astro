@@ -22,8 +22,8 @@ const { Content } = await render(entry);
       <h1>{title}</h1>
       <p class="article__meta">
         <span>{role}</span>
-        <span class="dot">·</span>
-        {year ? <span>{year}</span> : <span class="badge">{status}</span>}
+        {(year || status) && <span class="dot">·</span>}
+        {year ? <span>{year}</span> : status ? <span class="badge">{status}</span> : null}
       </p>
     </header>
 

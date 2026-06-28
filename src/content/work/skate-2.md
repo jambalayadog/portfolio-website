@@ -2,6 +2,7 @@
 title: "Skate 2"
 studio: "EA Black Box"
 role: "Game Designer"
+focus: "Challenge Design"
 year: 2009
 order: 14
 boxart: "/images/portfolio/Skate_2_Cover.jpg"

@@ -2,6 +2,7 @@
 title: "Army of Two: Devil's Cartel"
 studio: "Visceral Games (Montreal)"
 role: "Game Designer"
+focus: "Mission & Encounter Design"
 year: 2013
 order: 10
 boxart: "/images/portfolio/ArmyOfTwo3.jpg"

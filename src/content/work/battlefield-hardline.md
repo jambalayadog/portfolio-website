@@ -2,6 +2,7 @@
 title: "Battlefield: Hardline"
 studio: "Visceral Games"
 role: "Game Designer"
+focus: "Level & Encounter Design"
 year: 2015
 order: 8
 boxart: "/images/portfolio/Battlefield_Hardline.jpg"

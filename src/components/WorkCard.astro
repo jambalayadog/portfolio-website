@@ -5,21 +5,29 @@ import { resolveImage } from '../lib/images';
 interface Props {
   slug: string;
   title: string;
+  cardTitle?: string;
   studio: string;
   boxart: string;
+  role: string;
+  focus?: string;
   year?: number;
   status?: string;
 }
-const { slug, title, studio, boxart, year, status } = Astro.props;
+const { slug, title, cardTitle, studio, boxart, role, focus, year, status } = Astro.props;
 const art = resolveImage(boxart);
+const label = cardTitle ?? title;
 ---
 
 <a class="card" href={`/work/${slug}`}>
   <div class="card__art">
     {art && <Image src={art} alt={`${title} box art`} width={400} loading="lazy" />}
+    <div class="card__chip">
+      <span class="role">{role}</span>
+      {focus && <span class="focus">{focus}</span>}
+    </div>
   </div>
   <div class="card__body">
-    <h3 class="card__title">{title}</h3>
+    <h3 class="card__title">{label}</h3>
     <p class="card__meta">
       <span>{studio}</span>
       {year ? <span>· {year}</span> : status ? <span class="badge">{status}</span> : null}

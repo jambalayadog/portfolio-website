@@ -2,6 +2,7 @@
 title: "Need for Speed: Rivals"
 studio: "Ghost Games / Criterion"
 role: "Game Designer"
+focus: "Systems Design"
 year: 2013
 order: 9
 boxart: "/images/portfolio/Need_for_Speed_Rivals_cover.jpg"

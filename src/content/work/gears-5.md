@@ -1,7 +1,8 @@
 ---
 title: "Gears 5"
 studio: "The Coalition"
-role: "Senior Game Designer - PvE + PvP"
+role: "Senior Game Designer"
+focus: "PvE + PvP Level Design"
 year: 2019
 order: 3
 boxart: "/images/portfolio/Gears5.jpg"

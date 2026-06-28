@@ -2,6 +2,7 @@
 title: "Medal of Honor: Warfighter"
 studio: "Danger Close (EA LA)"
 role: "Game Designer"
+focus: "Level & Mission Design"
 year: 2012
 order: 11
 boxart: "/images/portfolio/Warfighter.jpg"
