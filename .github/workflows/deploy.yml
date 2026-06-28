@@ -1,0 +1,31 @@
+name: Deploy to Cloudflare
+
+# Build the Astro site and deploy it to the Cloudflare Worker on every push to
+# main. Requires one repo secret: CLOUDFLARE_API_TOKEN (an "Edit Cloudflare
+# Workers" token). The account id is not secret.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 9c1717ec1cbc975289682d34bd61b813
+          command: deploy
