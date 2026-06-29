@@ -9,10 +9,7 @@ const entry = await getEntry('pages', 'about');
 if (!entry) throw new Error('Missing pages/about.md');
 const { Content } = await render(entry);
 
-const groups = [
-  { title: 'Genres & Experiences', items: breadth.genres },
-  { title: 'Features & Ownership', items: breadth.features },
-];
+const groups = Object.entries(breadth) as [string, { label: string; games: string[] }[]][];
 ---
 
 <BaseLayout title="About — Jordan Watt">
@@ -25,19 +22,21 @@ const groups = [
       <Content />
     </div>
 
-    {groups.map((g) => (
+    {groups.map(([title, items]) => (
       <section class="section">
-        <div class="section-head"><h2>{g.title}</h2></div>
+        <div class="section-head"><h2>{title}</h2></div>
         <div class="matrix">
-          {g.items.map((it) => {
-            const img = resolveImage(it.boxart);
-            return (
-              <div class="matrix__item">
-                {img && <Image src={img} alt="" width={96} loading="lazy" />}
-                <span class="matrix__label">{it.label}</span>
-              </div>
-            );
-          })}
+          {items.map((it) => (
+            <div class="matrix__item">
+              <span class="matrix__thumbs">
+                {it.games.map((g) => {
+                  const img = resolveImage(g);
+                  return img ? <Image src={img} alt="" width={96} loading="lazy" /> : null;
+                })}
+              </span>
+              <span class="matrix__label">{it.label}</span>
+            </div>
+          ))}
         </div>
       </section>
     ))}

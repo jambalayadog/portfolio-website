@@ -1,26 +1,26 @@
 {
-  "genres": [
-    { "label": "Action Adventure", "boxart": "Battlefield_Hardline.jpg" },
-    { "label": "Single Player", "boxart": "eday.png" },
-    { "label": "FPS & 3PS", "boxart": "Gears5.jpg" },
-    { "label": "PvE", "boxart": "ArmyOfTwo3.jpg" },
-    { "label": "Driving", "boxart": "Needforspeedtheruncover.jpg" },
-    { "label": "PvP", "boxart": "Gears5.jpg" },
-    { "label": "Sports & Sim", "boxart": "Madden06.jpg" },
-    { "label": "Live Service", "boxart": "PVZBFN.jpg" },
-    { "label": "Space Flight", "boxart": "SWBF2_box.jpg" },
-    { "label": "Open World", "boxart": "Skate_2_Cover.jpg" }
+  "Genres & Experiences": [
+    { "label": "Action Adventure", "games": ["Battlefield_Hardline.jpg"] },
+    { "label": "Single Player", "games": ["eday.png"] },
+    { "label": "FPS & 3PS", "games": ["Gears5.jpg"] },
+    { "label": "PvE", "games": ["ArmyOfTwo3.jpg"] },
+    { "label": "Driving & Racing", "games": ["Needforspeedtheruncover.jpg", "Need_for_Speed_Rivals_cover.jpg", "Warfighter.jpg"] },
+    { "label": "PvP", "games": ["Gears5.jpg"] },
+    { "label": "Sports & Sim", "games": ["Madden06.jpg"] },
+    { "label": "Live Service", "games": ["PVZBFN.jpg"] },
+    { "label": "Space", "games": ["SWBF2_box.jpg"] },
+    { "label": "Open World", "games": ["Skate_2_Cover.jpg"] }
   ],
-  "features": [
-    { "label": "Level Design", "boxart": "Warfighter.jpg" },
-    { "label": "Game Modes", "boxart": "PvZ_Garden_Warfare_2.jpg" },
-    { "label": "Missions & Quests", "boxart": "Skate.png" },
-    { "label": "Systems", "boxart": "Need_for_Speed_Rivals_cover.jpg" },
-    { "label": "Economy", "boxart": "PVZBFN.jpg" },
-    { "label": "Encounters", "boxart": "Battlefield_Hardline.jpg" },
-    { "label": "Tutorials", "boxart": "Skate.png" },
-    { "label": "AI", "boxart": "PvZ_Garden_Warfare_2.jpg" },
-    { "label": "Editors", "boxart": "Skate.png" },
-    { "label": "Cinematics", "boxart": "FIFA_17_cover.jpg" }
+  "Features & Ownership": [
+    { "label": "Level Design", "games": ["Warfighter.jpg"] },
+    { "label": "Game Modes", "games": ["PvZ_Garden_Warfare_2.jpg"] },
+    { "label": "Missions & Quests", "games": ["Skate.png"] },
+    { "label": "Systems", "games": ["Need_for_Speed_Rivals_cover.jpg"] },
+    { "label": "Economy", "games": ["PVZBFN.jpg"] },
+    { "label": "Encounters", "games": ["Battlefield_Hardline.jpg"] },
+    { "label": "Tutorials", "games": ["Skate.png"] },
+    { "label": "AI", "games": ["PvZ_Garden_Warfare_2.jpg"] },
+    { "label": "Editors", "games": ["skate-it.jpg"] },
+    { "label": "Cinematics", "games": ["FIFA_17_cover.jpg"] }
   ]
 }
