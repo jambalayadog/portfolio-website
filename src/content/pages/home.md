@@ -5,4 +5,6 @@ tagline: "Expert Game Designer & Technical Designer"
 workHeading: "Selected Work"
 ---
 
-20+ years delivering high-quality gameplay across AAA franchises — Gears of War, Star Wars, Need for Speed, Plants vs. Zombies, Skate, and more. Bridging creative vision with technical execution, from concept to live service.
+25+ years delivering high-quality gameplay across AAA franchises — FIFA, Gears of War, Need for Speed, Plants vs. Zombies, Skate, Star Wars, and more.
+
+I bridge creative vision with technical execution, from concept to live.
