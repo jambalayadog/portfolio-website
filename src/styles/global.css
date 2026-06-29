@@ -204,13 +204,24 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
 }
 .matrix__label { flex: 1 1 auto; min-width: 0; }
 .matrix__thumbs { display: flex; gap: 0.25rem; flex: 0 0 auto; }
+.matrix__thumb { position: relative; display: inline-flex; }
 .matrix__thumbs img {
   width: 34px;
   height: 45px;
   object-fit: cover;
   border-radius: 5px;
 }
+.matrix__note {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1;
+}
 .matrix__label { font-size: 0.92rem; font-weight: 600; }
+.matrix-footnote { color: var(--muted); font-size: 0.8rem; margin-top: 0.8rem; }
 
 /* ---------- Highlights ---------- */
 .highlight {
