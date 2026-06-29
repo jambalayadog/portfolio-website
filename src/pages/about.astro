@@ -28,13 +28,13 @@ const groups = Object.entries(breadth) as [string, { label: string; games: strin
         <div class="matrix">
           {items.map((it) => (
             <div class="matrix__item">
+              <span class="matrix__label">{it.label}</span>
               <span class="matrix__thumbs">
                 {it.games.map((g) => {
                   const img = resolveImage(g);
                   return img ? <Image src={img} alt="" width={96} loading="lazy" /> : null;
                 })}
               </span>
-              <span class="matrix__label">{it.label}</span>
             </div>
           ))}
         </div>
