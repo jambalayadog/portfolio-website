@@ -1,9 +1,9 @@
 ---
 title: "QA Tester"
-cardTitle: "Burnout · Fight Night · Time Splitters"
+cardTitle: "FIFA · Madden · Tiger · NBA · NHL · Burnout · Fight Night"
 studio: "EA QA"
 role: "QA Tester"
-focus: "EA Sports Online"
+focus: "Online Connectivity & Performance"
 year: 2003
 order: 17
 boxart: "/images/portfolio/Need_for_Speed_Underground_cover.jpg"

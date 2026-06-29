@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { resolveImage } from '../lib/images';
 
-const items = (await getCollection('highlights')).sort((a, b) => a.data.order - b.data.order);
+const items = (await getCollection('extras')).sort((a, b) => a.data.order - b.data.order);
 const rendered = await Promise.all(
   items.map(async (item) => ({
     item,
@@ -14,11 +14,11 @@ const rendered = await Promise.all(
 );
 ---
 
-<BaseLayout title="Highlights — Jordan Watt" description="Side projects, hobby builds, and career highlights.">
+<BaseLayout title="Extras — Jordan Watt" description="Side projects, hobby builds, and career highlights.">
   <article class="article container">
     <header class="article__head">
-      <p class="eyebrow">Extras</p>
-      <h1>Highlights</h1>
+      <p class="eyebrow">Beyond the Games</p>
+      <h1>Extras</h1>
       <p class="article__meta">Side projects, hobby builds, and a few career moments.</p>
     </header>
 

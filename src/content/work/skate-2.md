@@ -1,7 +1,7 @@
 ---
 title: "Skate 2"
 studio: "EA Black Box"
-role: "Game Designer"
+role: "Associate Game Designer"
 focus: "Challenge Design"
 year: 2009
 order: 14

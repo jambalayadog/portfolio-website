@@ -2,7 +2,7 @@
 title: "Medal of Honor: Warfighter"
 studio: "Danger Close (EA LA)"
 role: "Game Designer"
-focus: "Level & Mission Design"
+focus: "Driving Levels & Shooter Level Design"
 year: 2012
 order: 11
 boxart: "/images/portfolio/Warfighter.jpg"
@@ -17,7 +17,7 @@ media:
 
 ## Level + Mission Design
 
-Leading another designer, I co-designed and scripted two driving levels for EA LA's Danger Close Games: a Karachi slum pursuit and a Dubai escape. I laid out initial road networks and mission beats, collaborated with art on modular techniques that allowed designers to prove out entire mission flows early.  Despite our AI engineers concerns, I tuned AI to navigate RNG traffic to create a dynamic pursuit through the busy streets of Karachi.
+Leading another designer, I co-designed and scripted two driving levels for EA LA's Danger Close Games: a Karachi slum pursuit and a Dubai escape. I laid out initial road networks and mission beats, collaborated with art on modular techniques that allowed designers to prove out entire mission flows early. Despite our AI engineers concerns, I tuned AI to navigate RNG traffic to create a dynamic pursuit through the busy streets of Karachi.
 
 ## Level + Mission Design
 

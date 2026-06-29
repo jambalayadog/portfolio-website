@@ -33,9 +33,9 @@ const work = defineCollection({
   }),
 });
 
-// Highlights: lighter "extras" cards (hobby + career moments).
-const highlights = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/highlights' }),
+// Extras: lighter cards (hobby + career moments).
+const extras = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/extras' }),
   schema: z.object({
     title: z.string(),
     image: z.string().optional(),
@@ -53,4 +53,4 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { work, highlights, pages };
+export const collections = { work, extras, pages };

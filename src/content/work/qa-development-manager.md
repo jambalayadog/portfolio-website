@@ -1,16 +1,16 @@
 ---
 title: "QA Development Manager"
-cardTitle: "NFS · FIFA · Madden · Tiger · NBA · NHL"
+cardTitle: "FIFA · Madden · Tiger · NBA · NHL · Need For Speed · Medal Of Honor · Time Splitters"
 studio: "EA QA"
 role: "QA Development Manager"
-focus: "Online & Compliance"
+focus: "Online, Compliance, & Certification"
 year: 2005
 order: 16
 boxart: "/images/portfolio/Madden06.jpg"
 media:
   - type: image
     url: "/images/portfolio/platforms.png"
-    caption: "Online + Compliance"
+    caption: "Online, Compliance, & Certification"
   - type: image
     url: "/images/portfolio/bigstock-D-Small-People-Lupe-Audit-54898952.jpg"
     caption: "Submission Audit Team"
