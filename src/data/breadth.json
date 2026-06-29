@@ -1,8 +1,8 @@
 {
   "Genres & Experiences": [
-    { "label": "Single Player", "games": ["Warfighter.jpg", "Battlefield_Hardline.jpg", "ArmyOfTwo3.jpg", "Needforspeedtheruncover.jpg"] },
+    { "label": "Single Player", "games": ["Warfighter.jpg", "Battlefield_Hardline.jpg", "SWBF2_box.jpg", "Needforspeedtheruncover.jpg"] },
     { "label": "FPS & 3PS", "games": ["Gears5.jpg", "eday.png", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },
-    { "label": "PvE", "games": ["Gears5.jpg", "PVZBFN.jpg", "PvZ_Garden_Warfare_2.jpg"] },
+    { "label": "PvE", "games": ["Gears5.jpg", "PVZBFN.jpg", "ArmyOfTwo3.jpg", "Skate-3-Boxart.jpg"] },
     { "label": "Driving & Racing", "games": ["Needforspeedtheruncover.jpg", "Need_for_Speed_Rivals_cover.jpg", "Warfighter.jpg"] },
     { "label": "PvP", "games": ["Gears5.jpg", "eday.png"] },
     { "label": "Sports & Sim", "games": ["FIFA_17_cover.jpg", "Skate.png", "Madden06.jpg", "Need_for_Speed_Rivals_cover.jpg"] },
