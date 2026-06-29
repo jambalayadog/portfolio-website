@@ -1,26 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WorkCard from '../components/WorkCard.astro';
+
+const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing pages/home.md');
+const { Content } = await render(home);
+const { title, eyebrow, tagline, workHeading } = home.data;
 
 const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Jordan Watt — Game Designer">
   <section class="hero container">
-    <p class="eyebrow">build · play · iterate</p>
-    <h1>Jordan Watt</h1>
-    <p class="tagline">Expert Game Designer &amp; Technical Designer</p>
-    <p class="intro">
-      20+ years delivering high-quality gameplay across AAA franchises — Gears of War,
-      Star Wars, Need for Speed, Plants vs. Zombies, Skate, and more. Bridging creative
-      vision with technical execution, from concept to live service.
-    </p>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {tagline && <p class="tagline">{tagline}</p>}
+    <div class="intro"><Content /></div>
   </section>
 
   <section class="section container">
     <div class="section-head">
-      <h2>Selected Work</h2>
+      <h2>{workHeading ?? 'Selected Work'}</h2>
       <a href="/about">About me →</a>
     </div>
     <div class="grid">

@@ -50,6 +50,10 @@ const pages = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     resumePdf: z.string().optional(),
+    // Home hero fields (home.md)
+    eyebrow: z.string().optional(),
+    tagline: z.string().optional(),
+    workHeading: z.string().optional(),
   }),
 });
 
