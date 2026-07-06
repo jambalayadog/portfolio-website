@@ -21,7 +21,9 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* Reserve the scrollbar's space on every page so short and tall pages keep the
+   same content width — no horizontal shift when navigating between them. */
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 
 body {
   margin: 0;
