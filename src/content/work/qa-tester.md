@@ -24,4 +24,4 @@ I worked directly with other studio testing departments to handle games they wer
 
 ## EA Sports Online (2003)
 
-Got my start in EA QA testing the full suite of EA Sports online titles — FIFA, Madden, NBA Live, NHL, and NCAA — during the early days of console online play. I verified online connectivity, matchmaking, and head-to-head features across platforms, surfacing the kinds of network and performance issues that led directly into the dedicated online clean room work that followed.
+Got my start in EA QA testing the full suite of EA Sports online titles (FIFA, Madden, NBA Live, NHL, and NCAA) during the early days of console online play. I verified online connectivity, matchmaking, and head-to-head features across platforms, surfacing the kinds of network and performance issues that led directly into the dedicated online clean room work that followed.

@@ -23,7 +23,7 @@ const firstCaption = slides[0]?.caption ?? '';
       {slides.map((s, i) => (
         <div class="carousel__slide" class:list={[{ 'is-active': i === 0 }]} data-slide={i} data-caption={s.caption ?? ''}>
           {s.kind === 'image' && s.img ? (
-            <Image src={s.img} alt={s.caption ?? `${title} — image ${i + 1}`} width={1200} loading={i === 0 ? 'eager' : 'lazy'} />
+            <Image src={s.img} alt={s.caption ?? `${title}, image ${i + 1}`} width={1200} loading={i === 0 ? 'eager' : 'lazy'} />
           ) : (
             <button
               class="yt-facade"

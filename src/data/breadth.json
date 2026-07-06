@@ -8,7 +8,7 @@
     { "label": "Sports & Sim", "games": ["FIFA_17_cover.jpg", "Skate.png", "Madden06.jpg", "Need_for_Speed_Rivals_cover.jpg"] },
     { "label": "Live Service", "games": ["PVZBFN.jpg", "PvZ_Garden_Warfare_2.jpg", "Gears5.jpg"] },
     { "label": "Space", "games": ["SWBF2_box.jpg"] },
-    { "label": "Open World", "games": ["Skate-3-Boxart.jpg", "Skate_2_Cover.jpg", "Skate.png", { "img": "Battlefield_Hardline.jpg", "note": "*" }] }
+    { "label": "Open World", "games": ["Skate-3-Boxart.jpg", "Skate_2_Cover.jpg", "Skate.png"] }
   ],
   "Features & Ownership": [
     { "label": "Level Design", "games": ["Gears5.jpg", "eday.png", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },

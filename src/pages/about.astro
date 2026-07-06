@@ -24,7 +24,7 @@ type Game = string | { img: string; note?: string };
 const groups = Object.entries(breadth) as [string, { label: string; games: Game[] }[]][];
 ---
 
-<BaseLayout title="About — Jordan Watt">
+<BaseLayout title="About · Jordan Watt">
   <article class="article container">
     <header class="article__head">
       <p class="eyebrow">{entry.data.subtitle}</p>
@@ -62,8 +62,5 @@ const groups = Object.entries(breadth) as [string, { label: string; games: Game[
         </div>
       </section>
     ))}
-
-    <p class="matrix-footnote">* Open-world design within specific levels (e.g. Hardline's "Legacy").</p>
-
   </article>
 </BaseLayout>
