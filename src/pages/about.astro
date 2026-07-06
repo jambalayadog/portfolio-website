@@ -38,7 +38,7 @@ const groups = Object.entries(breadth) as [string, { label: string; games: Game[
                   if (!img) return null;
                   return (
                     <span class="matrix__thumb">
-                      <Image src={img} alt="" width={96} loading="lazy" />
+                      <span class="matrix__clip"><Image src={img} alt="" width={160} loading="lazy" /></span>
                       {note && <sup class="matrix__note">{note}</sup>}
                     </span>
                   );

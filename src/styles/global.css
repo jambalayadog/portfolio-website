@@ -205,11 +205,12 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
 .matrix__label { flex: 1 1 auto; min-width: 0; }
 .matrix__thumbs { display: flex; gap: 0.25rem; flex: 0 0 auto; }
 .matrix__thumb { position: relative; display: inline-flex; }
-.matrix__thumbs img {
+.matrix__clip { display: inline-flex; overflow: hidden; border-radius: 5px; }
+.matrix__clip img {
   width: 34px;
   height: 45px;
   object-fit: cover;
-  border-radius: 5px;
+  transform: scale(2); /* zoom 200% into center, same box size */
 }
 .matrix__note {
   position: absolute;
