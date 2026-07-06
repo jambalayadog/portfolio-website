@@ -204,14 +204,42 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
 }
 .matrix__label { flex: 1 1 auto; min-width: 0; }
 .matrix__thumbs { display: flex; gap: 0.25rem; flex: 0 0 auto; }
-.matrix__thumb { position: relative; display: inline-flex; }
-.matrix__clip { display: inline-flex; overflow: hidden; border-radius: 5px; }
-.matrix__clip img {
+.matrix__thumb {
+  position: relative;
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.matrix__thumb img {
   width: 34px;
   height: 45px;
   object-fit: cover;
-  transform: scale(2); /* zoom 200% into center, same box size */
+  border-radius: 5px;
 }
+.matrix__tip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--surface-2);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+  z-index: 5;
+}
+.matrix__thumb:hover .matrix__tip,
+.matrix__thumb:focus .matrix__tip { opacity: 1; visibility: visible; }
 .matrix__note {
   position: absolute;
   top: -3px;

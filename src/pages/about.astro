@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { getEntry, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { resolveImage } from '../lib/images';
 import breadth from '../data/breadth.json';
@@ -8,6 +8,17 @@ import breadth from '../data/breadth.json';
 const entry = await getEntry('pages', 'about');
 if (!entry) throw new Error('Missing pages/about.md');
 const { Content } = await render(entry);
+
+// Map a box-art filename → the game's display name (for thumbnail tooltips),
+// derived from the work entries, with overrides where the art ≠ its entry title.
+const work = await getCollection('work');
+const nameByFile = new Map<string, string>();
+for (const w of work) {
+  const f = w.data.boxart.split('/').pop();
+  if (f) nameByFile.set(f, w.data.title);
+}
+nameByFile.set('Madden06.jpg', 'Madden NFL 06');
+const gameName = (file: string) => nameByFile.get(file.split('/').pop() ?? '') ?? '';
 
 type Game = string | { img: string; note?: string };
 const groups = Object.entries(breadth) as [string, { label: string; games: Game[] }[]][];
@@ -36,11 +47,13 @@ const groups = Object.entries(breadth) as [string, { label: string; games: Game[
                   const note = typeof g === 'string' ? null : g.note;
                   const img = resolveImage(file);
                   if (!img) return null;
+                  const name = gameName(file);
                   return (
-                    <span class="matrix__thumb">
-                      <span class="matrix__clip"><Image src={img} alt="" width={160} loading="lazy" /></span>
+                    <button class="matrix__thumb" type="button" aria-label={name}>
+                      <Image src={img} alt="" width={96} loading="lazy" />
                       {note && <sup class="matrix__note">{note}</sup>}
-                    </span>
+                      <span class="matrix__tip" aria-hidden="true">{name}</span>
+                    </button>
                   );
                 })}
               </span>
