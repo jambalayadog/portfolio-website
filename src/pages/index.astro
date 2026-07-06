@@ -11,7 +11,7 @@ const { title, eyebrow, tagline, workHeading } = home.data;
 const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title="Jordan Watt — Game Designer">
+<BaseLayout title="Jordan Watt · Game Designer">
   <section class="hero container">
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>

@@ -5,7 +5,7 @@ interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'Jordan Watt — Game Designer. 20+ years across AAA franchises.' } = Astro.props;
+const { title, description = 'Jordan Watt · Game Designer. 20+ years across AAA franchises.' } = Astro.props;
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
   href === '/' ? pathname === '/' : pathname.startsWith(href);
