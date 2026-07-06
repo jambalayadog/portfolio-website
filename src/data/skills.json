@@ -7,7 +7,7 @@
     { "label": "Review", "icon": "review" },
     { "label": "Workflows", "icon": "workflows" },
     { "label": "Tools", "icon": "tools" },
-    { "label": "Jira", "icon": "jira" },
+    { "label": "DevOps", "icon": "jira" },
     { "label": "Product", "icon": "figma" },
     { "label": "Canvas", "icon": "miro" }
   ],
@@ -16,10 +16,10 @@
     { "label": "Unity", "icon": "unity" },
     { "label": "Godot", "icon": "godot" },
     { "label": "Frostbite", "icon": "frostbite" },
-    { "label": "Blueprint", "icon": "blueprint" },
-    { "label": "Script", "icon": "javascript" },
-    { "label": "Git", "icon": "github" },
     { "label": "Web", "icon": "web-stack" },
+    { "label": "Blueprint", "icon": "blueprint" },
+    { "label": "Script", "icon": "typescript" },
+    { "label": "Git", "icon": "github" },
     { "label": "AI", "icon": "AI" }
   ]
 }
