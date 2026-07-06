@@ -18,7 +18,7 @@
     { "label": "Frostbite", "icon": "frostbite" },
     { "label": "Web", "icon": "web-stack" },
     { "label": "Blueprint", "icon": "blueprint" },
-    { "label": "Script", "icon": "typescript" },
+    { "label": "Script", "icon": "terminal" },
     { "label": "Git", "icon": "github" },
     { "label": "AI", "icon": "AI" }
   ]
