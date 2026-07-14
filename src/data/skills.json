@@ -5,11 +5,11 @@
     { "label": "Document", "icon": "document" },
     { "label": "Roadmap", "icon": "roadmap" },
     { "label": "Review", "icon": "review" },
-    { "label": "Workflows", "icon": "workflows" },
     { "label": "Tools", "icon": "tools" },
-    { "label": "DevOps", "icon": "jira" },
+    { "label": "Workflows", "icon": "workflows" },
+    { "label": "Canvas", "icon": "miro" },
     { "label": "Product", "icon": "figma" },
-    { "label": "Canvas", "icon": "miro" }
+    { "label": "DevOps", "icon": "jira" }
   ],
   "Game Engines & Dev": [
     { "label": "Unreal", "icon": "unreal" },
