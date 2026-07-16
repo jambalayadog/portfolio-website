@@ -1,10 +1,10 @@
 ---
 title: "Jordan Watt"
 eyebrow: "build · play · iterate"
-tagline: "Expert Game Designer & Technical Designer"
+tagline: "Expert in Game Design & Technical Design"
 workHeading: "Selected Work"
 ---
 
-25+ years delivering high-quality gameplay experiences across AAA franchises: FIFA, Gears of War, Need for Speed, Plants vs. Zombies, Skate, Star Wars, and more.
+25+ years delivering high-quality content across AAA franchises: FIFA, Gears of War, Need for Speed, Plants vs. Zombies, Skate, Star Wars, and more.
 
-I understand the game-development framework end to end: ready to develop, manage, and direct features and experiences, from first pitch all the way through to live service.
+With a comprehensive understanding of game-development frameworks combined with my technical and game design expertise, I can develop and direct features and experiences from concept through to successful live product.
