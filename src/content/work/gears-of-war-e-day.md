@@ -4,7 +4,7 @@ studio: "People Can Fly"
 role: "Principal Technical Level Designer"
 focus: "Versus Features & Level Design"
 order: 1
-boxart: "/images/portfolio/eday.png"
+boxart: "/images/portfolio/gears_edayB.jpg"
 media:
   - type: image
     url: "/images/portfolio/gearseday-1717957433866.jpg"

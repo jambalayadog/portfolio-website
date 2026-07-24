@@ -1,18 +1,18 @@
 {
   "Genres & Experiences": [
     { "label": "Single Player", "games": ["Warfighter.jpg", "Battlefield_Hardline.jpg", "SWBF2_box.jpg", "Needforspeedtheruncover.jpg"] },
-    { "label": "FPS & 3PS", "games": ["Gears5.jpg", "eday.png", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },
+    { "label": "FPS & 3PS", "games": ["Gears5.jpg", "gears_edayB.jpg", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },
     { "label": "PvE", "games": ["Gears5.jpg", "PVZBFN.jpg", "ArmyOfTwo3.jpg", "Skate-3-Boxart.jpg"] },
     { "label": "Driving & Racing", "games": ["Needforspeedtheruncover.jpg", "Need_for_Speed_Rivals_cover.jpg", "Warfighter.jpg"] },
-    { "label": "PvP", "games": ["Gears5.jpg", "eday.png"] },
+    { "label": "PvP", "games": ["Gears5.jpg", "gears_edayB.jpg"] },
     { "label": "Sports & Sim", "games": ["FIFA_17_cover.jpg", "Skate.png", "Madden06.jpg", "Need_for_Speed_Rivals_cover.jpg"] },
     { "label": "Live Service", "games": ["PVZBFN.jpg", "PvZ_Garden_Warfare_2.jpg", "Gears5.jpg"] },
     { "label": "Space", "games": ["SWBF2_box.jpg"] },
     { "label": "Open World", "games": ["Skate-3-Boxart.jpg", "Skate_2_Cover.jpg", "Skate.png"] }
   ],
   "Features & Ownership": [
-    { "label": "Level Design", "games": ["Gears5.jpg", "eday.png", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },
-    { "label": "Game Modes", "games": ["PvZ_Garden_Warfare_2.jpg", "PVZBFN.jpg", "eday.png"] },
+    { "label": "Level Design", "games": ["Gears5.jpg", "gears_edayB.jpg", "Battlefield_Hardline.jpg", "Warfighter.jpg"] },
+    { "label": "Game Modes", "games": ["PvZ_Garden_Warfare_2.jpg", "PVZBFN.jpg", "gears_edayB.jpg"] },
     { "label": "Missions & Quests", "games": ["SWBF2_box.jpg", "ArmyOfTwo3.jpg", "Warfighter.jpg", "Needforspeedtheruncover.jpg"] },
     { "label": "Systems", "games": ["Need_for_Speed_Rivals_cover.jpg", "PVZBFN.jpg", "534px-Sumo_Digital_(2019).webp", "PvZ_Garden_Warfare_2.jpg"] },
     { "label": "Economy", "games": ["PVZBFN.jpg"] },
