@@ -89,17 +89,24 @@ const firstCaption = slides[0]?.caption ?? '';
       });
     });
 
-    // Keyboard + swipe.
-    root.tabIndex = 0;
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') show(index - 1);
-      if (e.key === 'ArrowRight') show(index + 1);
-    });
+    // Swipe (mobile). Only treat it as a swipe when horizontal movement clearly
+    // beats vertical, so a page scroll that drifts sideways doesn't flip slides.
+    // (No keyboard handler here — the ‹ › + thumbnail <button>s keep it keyboard
+    // accessible, and ← / → are reserved for prev/next project navigation.)
     let startX = 0;
-    root.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
+    let startY = 0;
+    root.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      },
+      { passive: true },
+    );
     root.addEventListener('touchend', (e) => {
       const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) show(dx < 0 ? index + 1 : index - 1);
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(dx < 0 ? index + 1 : index - 1);
     });
   }
 
