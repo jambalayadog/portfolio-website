@@ -4,11 +4,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Carousel from '../../components/Carousel.astro';
 
 export async function getStaticPaths() {
-  const work = await getCollection('work');
-  return work.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  // Sort by the same `order` the work grid uses, so prev/next matches the
+  // sequence a visitor would have clicked through.
+  const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+  return work.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prev: work[i - 1] ?? null, next: work[i + 1] ?? null },
+  }));
 }
 
-const { entry } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { title, studio, role, year, status, media } = entry.data;
 const { Content } = await render(entry);
 ---
@@ -32,5 +37,22 @@ const { Content } = await render(entry);
     <div class="prose">
       <Content />
     </div>
+
+    {(prev || next) && (
+      <nav class="pager" aria-label="More work">
+        {prev && (
+          <a class="pager__link" href={`/work/${prev.id}`} rel="prev">
+            <span class="pager__dir">← Previous</span>
+            <span class="pager__title">{prev.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a class="pager__link pager__link--next" href={`/work/${next.id}`} rel="next">
+            <span class="pager__dir">Next →</span>
+            <span class="pager__title">{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )}
   </article>
 </BaseLayout>

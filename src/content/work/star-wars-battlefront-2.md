@@ -31,4 +31,4 @@ media:
 
 ## Cross-Studio Leadership
 
-- Represented design efforts for cross-studio collaboration between EA Vancouver and EA Motive, establishing production relationships and design workflows.
+- Represented EA Vancouver's design efforts for cross-studio collaboration with EA Motive, establishing contacts and review pipelines during work trips.

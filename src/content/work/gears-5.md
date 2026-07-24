@@ -12,7 +12,7 @@ media:
     caption: "PvE + PvP Level Design"
 ---
 
-Built PvP and PvE maps taking them from concept to release, following [long established Gears of War level design process](https://youtu.be/73Pqsk74Jc0?si=sqw9bTWPN80s_gTa&t=957).
+Built PvP and PvE maps for Gears DLC, taking them from concept to release, following [long established Gears of War level design process](https://youtu.be/73Pqsk74Jc0?si=sqw9bTWPN80s_gTa&t=957).
 
 - Greyblocked maps first for macro scale and layout for concept and prototyping, and then for micro details to refine cover systems and gameplay before hand off to Art team
 

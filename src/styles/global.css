@@ -169,6 +169,46 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
 }
 .btn:hover { text-decoration: none; filter: brightness(1.08); }
 
+/* ---------- Prev/next pager (work detail) ---------- */
+.pager {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.pager__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 48%;
+  padding: 0.7rem 0.95rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--fg);
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.pager__link:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.pager__link--next { margin-left: auto; text-align: right; }
+.pager__dir {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pager__title { font-weight: 600; font-size: 0.98rem; line-height: 1.25; }
+
+@media (max-width: 560px) {
+  .pager { flex-direction: column; }
+  .pager__link { max-width: none; }
+  .pager__link--next { margin-left: 0; text-align: left; }
+}
+
 /* ---------- Skill stack (Resume) ---------- */
 .skill-grid {
   display: grid;
@@ -313,4 +353,5 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   html { scroll-behavior: auto; }
   .carousel__slide { transition: none; }
   .card { transition: none; }
+  .pager__link { transition: none; }
 }
