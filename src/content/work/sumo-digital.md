@@ -4,13 +4,17 @@ studio: "Sumo Digital"
 role: "Principal Technical Designer"
 focus: "Core Gameplay Features"
 order: 2
-boxart: "/images/portfolio/534px-Sumo_Digital_(2019).webp"
+boxart: "/images/portfolio/SumoB.webp"
 media:
   - type: video
     url: "https://youtu.be/5Jn38IQMpSk"
     caption: "Unreleased AAA"
 ---
 
-Led multi-disciplinary team responsible to deliver core gameplay feature for a multiplayer AAA Unreal Engine 5 title. Built comprehensive systemic prototypes, coordinated feature development across departments, managed milestone deliverables and built production roadmaps.
+Led team responsible to deliver core gameplay feature for a multiplayer AAA Unreal Engine 5 title.
 
-Collaborated with department leadership to define and establish technical design department foundations, career paths, and performance standards. Mentored, project planned, and career planned multiple technical designers.
+- Built comprehensive systemic prototypes in Unreal, using Blueprint and requiring design and technical coordination across departments, to prove out and inform feature development and production roadmaps.
+
+Mentored, project planned, and career planned multiple technical designers.
+
+Collaborated with technical design leadership to define and establish TD department foundations, career paths, and performance standards.
