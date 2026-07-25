@@ -12,4 +12,10 @@ media:
     caption: "Skate Park Editor (Nintendo DS)"
 ---
 
-Designed the **Skate Park Editor** for the Nintendo DS edition of _Skate It_: the build-your-own-park toolset that let players lay out and skate custom parks on a handheld. I owned the editor's design and handed it off to the development team for implementation.
+Designed the **Skate Park Editor** for the Nintendo DS edition of _Skate It_: the build-your-own-park toolset that let players create skate custom parks on a handheld.
+
+- I researched game editors and documented the design for a skate park editor, and handed it off to the development team for implementation.
+
+- As I was not really on the project, and that was my only responsibility, I wasn't involved in the implementation or iteration.
+
+- To my surprise, the final product was quite close to my design.

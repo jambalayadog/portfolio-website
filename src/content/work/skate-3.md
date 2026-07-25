@@ -12,4 +12,16 @@ media:
     caption: "Challenges + Skate School"
 ---
 
-I led challenge design across multiple districts, introducing 'Own The Lot' challenge type for a THPS-like feel, and built 'Skate School' with Coach Frank (Jason Lee) for our onboarding. I owned design for all challenge types, collaborated on game progression, recorded AI for in-game skaters, and represented the game at a London launch event, even helping to host a live competition where the press engaged in Hall Of Meat challenges. Free skate shoes for years were a fantastic perk!
+I was point of contact and led design of challenge types across Skate 3.
+
+- Designed and built challenges design across multiple districts, primarily Industrial District
+
+- Introduced 'Own The Lot' challenge type to emulate a THPS-like free-skate objective feel,
+
+- Built 'Skate School' with Coach Frank (Jason Lee) for our onboarding.
+
+- Collaborated on our progression system, and recorded AI for in-game skaters
+
+- I represented Skate 3 at a London launch event, even helping to host a live competition where the press engaged in Hall Of Meat challenges.
+
+- Free skate shoes for years was a fantastic perk!

@@ -12,4 +12,14 @@ media:
     caption: "Challenges"
 ---
 
-I became the design owner for all challenge types, carrying over Skate 1's and creating new ones like Hall of Meat and 'own/kill' features. I worked closely with engineers and UX on challenge features and UI. I built challenges for multiple districts, perfecting elements with environment artists, created an intro area for new tricks, and helped other designers troubleshoot and own challenge functionality.
+I became the design owner for all challenge types, carrying over Skate 1's and helping to create new types like Hall of Meat and 'own/kill' features.
+
+- Worked closely with engineers and UX on challenge features and UI.
+
+- Built challenges for multiple districts,
+
+- Fine tuned environments while sitting with artists,
+
+- Created an intro area for new tricks
+
+- Helped other designers troubleshoot and own challenge functionality

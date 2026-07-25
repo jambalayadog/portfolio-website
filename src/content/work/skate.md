@@ -12,4 +12,14 @@ media:
     caption: "Challenges"
 ---
 
-I joined pre-alpha, quickly becoming the POC for challenge implementation. I developed over 30 varied challenges, including Pro Challenges, spot challenges, competitions, deathraces, and more. These were made by creating and exporting Maya volumes & locators, and creating Lua scripts to use this data and monitor the skaters activities against challenge criteria. I closely collaborated with environment artists to find & tune spots, particularly all of Old Town, and designed text & audio for challenge sign-ups, objectives, and feedback. I also worked with the art director to validate the visual language of our markers, as well as create custom trick locators.
+I joined pre-alpha, quickly becoming the POC for challenge implementation.
+
+- Developed over 30 varied challenges, including Pro Challenges, spot challenges, competitions, deathraces, and more.
+
+- Created and exported Maya volumes & locators, and created Lua scripts and expression to evaluate the skaters tricks against geometry and challenge criteria.
+
+- Closely collaborated with environment artists to find spots and tune them, particularly all of Old Town
+
+- Designed text & audio for challenge sign-ups and objectives
+
+- Worked with the art director to validate the visual language of our markers, as well as create custom trick locators using spline tech.
