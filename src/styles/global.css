@@ -355,3 +355,43 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   .card { transition: none; }
   .pager__link { transition: none; }
 }
+
+/* ============================================================
+   Motion / "juice" — all opt-in via html.js + prefers-reduced-motion:
+   no-preference, so no-JS and reduced-motion visitors always get fully
+   visible, static content. Transform/opacity only (GPU-cheap).
+   ============================================================ */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Staggered reveal-on-scroll (cards). JS toggles .is-visible; stagger delay
+     is set inline per intersection batch. */
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  html.js .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Images fade in as they load. */
+  html.js .fadeimg { opacity: 0; transition: opacity 0.5s ease; }
+  html.js .fadeimg.is-loaded { opacity: 1; }
+
+  /* Hero: gentle staggered rise on load. */
+  .hero .eyebrow,
+  .hero h1,
+  .hero .tagline,
+  .hero .intro { opacity: 0; animation: rise-in 0.6s ease forwards; }
+  .hero .eyebrow { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.14s; }
+  .hero .tagline { animation-delay: 0.24s; }
+  .hero .intro { animation-delay: 0.34s; }
+
+  /* Ken Burns: box art drifts in slightly on card hover. This rule follows
+     .fadeimg so its combined transition (opacity + transform) wins for card art. */
+  html.js .card__art img { transition: opacity 0.5s ease, transform 0.6s ease; }
+  .card:hover .card__art img { transform: scale(1.045); }
+}

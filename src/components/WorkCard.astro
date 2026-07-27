@@ -18,9 +18,9 @@ const art = resolveImage(boxart);
 const label = cardTitle ?? title;
 ---
 
-<a class="card" href={`/work/${slug}`}>
+<a class="card reveal" href={`/work/${slug}`}>
   <div class="card__art">
-    {art && <Image src={art} alt={`${title} box art`} width={400} loading="lazy" />}
+    {art && <Image class="fadeimg" src={art} alt={`${title} box art`} width={400} loading="lazy" />}
     <div class="card__chip">
       <span class="role">{role}</span>
       {focus && <span class="focus">{focus}</span>}

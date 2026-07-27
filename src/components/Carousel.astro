@@ -23,7 +23,7 @@ const firstCaption = slides[0]?.caption ?? '';
       {slides.map((s, i) => (
         <div class="carousel__slide" class:list={[{ 'is-active': i === 0 }]} data-slide={i} data-caption={s.caption ?? ''}>
           {s.kind === 'image' && s.img ? (
-            <Image src={s.img} alt={s.caption ?? `${title}, image ${i + 1}`} width={1200} loading={i === 0 ? 'eager' : 'lazy'} />
+            <Image class="fadeimg" src={s.img} alt={s.caption ?? `${title}, image ${i + 1}`} width={1200} loading={i === 0 ? 'eager' : 'lazy'} />
           ) : (
             <button
               class="yt-facade"
@@ -60,6 +60,8 @@ const firstCaption = slides[0]?.caption ?? '';
 
 <script>
   function initCarousel(root: HTMLElement) {
+    if (root.dataset.init) return; // guard against re-init on the same element
+    root.dataset.init = '1';
     const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
     const thumbs = Array.from(root.querySelectorAll<HTMLElement>('[data-thumb]'));
     const captionOut = root.querySelector<HTMLElement>('[data-caption-out]');
@@ -110,5 +112,8 @@ const firstCaption = slides[0]?.caption ?? '';
     });
   }
 
-  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+  // Re-run on initial load and after every view transition (fresh DOM each time).
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+  });
 </script>

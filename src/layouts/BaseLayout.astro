@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -30,6 +31,10 @@ const year = 2026;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <title>{title}</title>
+    {/* Mark JS as available before first paint so the motion styles (which start
+        content hidden) never leave anything invisible when JS is off. */}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <ClientRouter />
   </head>
   <body>
     <header class="site-header">
@@ -56,5 +61,54 @@ const year = 2026;
         </span>
       </div>
     </footer>
+
+    <script>
+      import { navigate } from 'astro:transitions/client';
+
+      // Runs once (module scripts aren't re-run across view transitions). Reads the
+      // live pager links, so ← / → move between projects on any page without
+      // re-binding; navigate() gives the same crossfade as a click.
+      document.addEventListener('keydown', (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+        const t = e.target as HTMLElement | null;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+        let href: string | undefined;
+        if (e.key === 'ArrowLeft') href = document.querySelector<HTMLAnchorElement>('.pager a[rel="prev"]')?.href;
+        if (e.key === 'ArrowRight') href = document.querySelector<HTMLAnchorElement>('.pager a[rel="next"]')?.href;
+        if (href) navigate(href);
+      });
+
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Re-run on every page (initial load + each view transition).
+      function setup() {
+        // Staggered reveal-on-scroll. Stagger resets per intersection batch, so
+        // items scrolled to later don't inherit a long global delay.
+        const reveals = document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)');
+        if (reduce || !('IntersectionObserver' in window)) {
+          reveals.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const io = new IntersectionObserver((entries, obs) => {
+            let i = 0;
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target as HTMLElement;
+              el.style.transitionDelay = i++ * 45 + 'ms';
+              el.classList.add('is-visible');
+              obs.unobserve(el);
+            }
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          reveals.forEach((el) => io.observe(el));
+        }
+
+        // Fade images in as they load.
+        document.querySelectorAll<HTMLImageElement>('.fadeimg:not(.is-loaded)').forEach((img) => {
+          if (img.complete) img.classList.add('is-loaded');
+          else img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+        });
+      }
+
+      document.addEventListener('astro:page-load', setup);
+    </script>
   </body>
 </html>

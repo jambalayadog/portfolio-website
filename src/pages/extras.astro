@@ -24,10 +24,10 @@ const rendered = await Promise.all(
 
     <div class="highlight-list">
       {rendered.map(({ item, Content, img }) => (
-        <div class="highlight">
+        <div class="highlight reveal">
           {img && (
             <div class="highlight__img">
-              <Image src={img} alt={item.data.title} width={480} loading="lazy" />
+              <Image class="fadeimg" src={img} alt={item.data.title} width={480} loading="lazy" />
             </div>
           )}
           <div class="highlight__body">

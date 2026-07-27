@@ -17,8 +17,18 @@ media:
 
 ## Story Mode Scripting
 
-I designed and scripted key story races, including the E3 stage demo, collaborating with the Creative Director and Lead Game Designer on helicopter gameplay. I also provided technical support for other story mode races, adding falling boulders to the Avalanche level, and tuning start/finish positions, AI, and traffic.
+- Designed and scripted key story races, including the E3 stage demo, collaborating with the Creative Director and Cinematics Director on helicopter gameplay and presentation
+
+- Provided technical support for other story mode races, adding boulder gameplay to the Avalanche level, and tuning start/finish positions, AI, and traffic.
 
 ## Challenge Series
 
-Working with the Creative Director, I designed the entire Challenge Series, creating novel racing experiences through unique routes, car selection, time/weather changes, and scripting cop/mob/helicopter encounters, obstacles, and traffic. I also collaborated with branding on Challenge Series UX/sponsorships, staged gameplay photos, and tuned medal times with QA.
+- Working with the Creative Director, I designed the entire Challenge Series,
+
+- Created novel racing experiences with unique routes, car selection, time of day, weather changes, and scripted cop/mob/helicopter encounters, obstacles, and traffic.
+
+- Collaborated with branding team on Challenge Series sponsorships & UX,
+
+- Staged numerous gameplay photos featuring choice car shots for different Challenge Series events
+
+- Worked with QA to tune Gold, Silver, Bronze medal target times
