@@ -68,14 +68,32 @@ const year = 2026;
       // Runs once (module scripts aren't re-run across view transitions). Reads the
       // live pager links, so ← / → move between projects on any page without
       // re-binding; navigate() gives the same crossfade as a click.
+      // Tag the <html> with the navigation direction so the view transition can
+      // slide prev/next project moves; any other link clears it (default fade).
+      const setDir = (dir?: 'prev' | 'next') => {
+        if (dir) document.documentElement.dataset.dir = dir;
+        else delete document.documentElement.dataset.dir;
+      };
+      document.addEventListener(
+        'click',
+        (e) => {
+          const a = (e.target as HTMLElement)?.closest?.('a[href]') as HTMLAnchorElement | null;
+          if (!a) return;
+          const rel = a.getAttribute('rel');
+          setDir(a.classList.contains('pager__link') && (rel === 'prev' || rel === 'next') ? rel : undefined);
+        },
+        true,
+      );
+
       document.addEventListener('keydown', (e) => {
         if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
         const t = e.target as HTMLElement | null;
         if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
         let href: string | undefined;
-        if (e.key === 'ArrowLeft') href = document.querySelector<HTMLAnchorElement>('.pager a[rel="prev"]')?.href;
-        if (e.key === 'ArrowRight') href = document.querySelector<HTMLAnchorElement>('.pager a[rel="next"]')?.href;
-        if (href) navigate(href);
+        let dir: 'prev' | 'next' | undefined;
+        if (e.key === 'ArrowLeft') { href = document.querySelector<HTMLAnchorElement>('.pager a[rel="prev"]')?.href; dir = 'prev'; }
+        if (e.key === 'ArrowRight') { href = document.querySelector<HTMLAnchorElement>('.pager a[rel="next"]')?.href; dir = 'next'; }
+        if (href) { setDir(dir); navigate(href); }
       });
 
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

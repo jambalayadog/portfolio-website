@@ -35,7 +35,7 @@ const groups = Object.entries(skills) as [string, { label: string; icon: string 
     </div>
 
     {groups.map(([title, items]) => (
-      <section class="section skill-group">
+      <section class="section skill-group reveal">
         <div class="section-head"><h2>{title}</h2></div>
         <div class="skill-grid">
           {items.map((it) => (

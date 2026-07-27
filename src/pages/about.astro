@@ -35,7 +35,7 @@ const groups = Object.entries(breadth) as [string, { label: string; games: Game[
     </div>
 
     {groups.map(([title, items]) => (
-      <section class="section">
+      <section class="section reveal">
         <div class="section-head"><h2>{title}</h2></div>
         <div class="matrix">
           {items.map((it) => (
