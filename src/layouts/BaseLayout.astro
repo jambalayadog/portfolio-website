@@ -37,6 +37,7 @@ const year = 2026;
     <ClientRouter />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <header class="site-header">
       <div class="container">
         <a class="brand" href="/">Jordan Watt</a>
@@ -98,8 +99,21 @@ const year = 2026;
 
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      // Header state + scroll progress. One listener (window persists across view
+      // transitions); reads the live elements, which are swapped per page.
+      function onScroll() {
+        document.querySelector('.site-header')?.classList.toggle('scrolled', window.scrollY > 40);
+        const bar = document.querySelector<HTMLElement>('.scroll-progress');
+        if (bar) {
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ')';
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
       // Re-run on every page (initial load + each view transition).
       function setup() {
+        onScroll();
         // Staggered reveal-on-scroll. Stagger resets per intersection batch, so
         // items scrolled to later don't inherit a long global delay.
         const reveals = document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)');

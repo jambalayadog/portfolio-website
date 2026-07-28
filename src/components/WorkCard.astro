@@ -18,19 +18,21 @@ const art = resolveImage(boxart);
 const label = cardTitle ?? title;
 ---
 
-<a class="card reveal" href={`/work/${slug}`}>
-  <div class="card__art">
-    {art && <Image class="fadeimg" src={art} alt={`${title} box art`} width={400} loading="lazy" />}
-    <div class="card__chip">
-      <span class="role">{role}</span>
-      {focus && <span class="focus">{focus}</span>}
+<div class="reveal card-cell">
+  <a class="card" href={`/work/${slug}`}>
+    <div class="card__art">
+      {art && <Image class="fadeimg" src={art} alt={`${title} box art`} width={400} loading="lazy" />}
+      <div class="card__chip">
+        <span class="role">{role}</span>
+        {focus && <span class="focus">{focus}</span>}
+      </div>
     </div>
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">{label}</h3>
-    <p class="card__meta">
-      <span>{studio}</span>
-      {year ? <span>· {year}</span> : status ? <span class="badge">{status}</span> : null}
-    </p>
-  </div>
-</a>
+    <div class="card__body">
+      <h3 class="card__title">{label}</h3>
+      <p class="card__meta">
+        <span>{studio}</span>
+        {year ? <span>· {year}</span> : status ? <span class="badge">{status}</span> : null}
+      </p>
+    </div>
+  </a>
+</div>

@@ -59,6 +59,25 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+.site-header.scrolled {
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* Scroll progress bar (fills as you read; most noticeable on long pages). */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 60;
+  pointer-events: none;
 }
 .site-header .container {
   display: flex;
@@ -102,6 +121,11 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
   gap: var(--gap);
 }
+/* Reveal wrapper is the grid cell; the card stretches to fill it so cards keep
+   equal heights, and the card's hover transform stays independent of the
+   wrapper's reveal transform. */
+.card-cell { display: grid; }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -316,8 +340,8 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
    ============================================================ */
 .carousel { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); margin-bottom: 1.8rem; }
 .carousel__stage { position: relative; aspect-ratio: 16 / 9; background: #000; }
-.carousel__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
-.carousel__slide.is-active { opacity: 1; visibility: visible; }
+.carousel__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: scale(1.02); transition: opacity 0.35s ease, transform 0.35s ease; }
+.carousel__slide.is-active { opacity: 1; visibility: visible; transform: scale(1); }
 .carousel__slide img, .carousel__slide iframe { width: 100%; height: 100%; object-fit: cover; border: 0; }
 
 .yt-facade { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; cursor: pointer; background-size: cover; background-position: center; padding: 0; }
@@ -356,6 +380,8 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   .pager__link { transition: none; }
   .nav a::after,
   .site-footer .links a::after { transition: none; }
+  .site-header { transition: none; }
+  .carousel__slide { transform: none; }
 }
 
 /* ============================================================
@@ -404,6 +430,11 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
   html[data-dir="next"]::view-transition-new(root) { animation: vt-in-right 0.35s ease both; }
   html[data-dir="prev"]::view-transition-old(root) { animation: vt-out-right 0.35s ease both; }
   html[data-dir="prev"]::view-transition-new(root) { animation: vt-in-left 0.35s ease both; }
+
+  /* Tactile press feedback. */
+  .btn { transition: transform 0.12s ease, filter 0.18s ease; }
+  .btn:active { transform: scale(0.97); }
+  .pager__link:active { transform: translateY(-2px) scale(0.985); }
 }
 
 @keyframes vt-out-left { to { transform: translateX(-2.5%); opacity: 0; } }
