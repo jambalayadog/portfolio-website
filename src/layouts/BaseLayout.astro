@@ -75,6 +75,24 @@ const year = 2026;
         if (dir) document.documentElement.dataset.dir = dir;
         else delete document.documentElement.dataset.dir;
       };
+
+      // The swap resets <html> attributes to the server-rendered ones, dropping
+      // runtime state: the .js class (gates all motion styles — without it card
+      // art loses its hover transition) and data-dir (drives the directional
+      // slide). Re-stamp both on the incoming document; data-dir is cleared
+      // once the transition finishes so back/forward never slides stale.
+      document.addEventListener('astro:before-swap', (e) => {
+        const { newDocument, viewTransition } = e as unknown as {
+          newDocument: Document;
+          viewTransition?: ViewTransition;
+        };
+        newDocument.documentElement.classList.add('js');
+        const dir = document.documentElement.dataset.dir;
+        if (dir) {
+          newDocument.documentElement.dataset.dir = dir;
+          viewTransition?.finished.finally(() => setDir(undefined));
+        }
+      });
       document.addEventListener(
         'click',
         (e) => {
