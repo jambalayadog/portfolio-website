@@ -7,12 +7,16 @@ year: 2026
 order: 1
 boxart: "/images/portfolio/gears_edayB.jpg"
 media:
-  - type: image
-    url: "/images/portfolio/gearseday-1717957433866.jpg"
-    caption: "People Can Fly"
+  - type: video
+    url: "https://www.youtube.com/watch?v=cmawSe1PkPg&t=8m31s"
+    caption: "Versus multiplayer gameplay"
 ---
 
 Principal Technical Level Designer for co-development & cross-discipline development for Versus features in Gears of War E-Day
+
+- Built 4 multiplayer game modes for ship plus additional seasonal game modes — from visuals to game logic to respawn systems.
+
+- Supported 6 maps for ship plus additional seasonal maps: supporting level designers, building pipelines for map features, and creating dynamic map objects (e.g. the [sea mine at 10:20](https://www.youtube.com/watch?v=cmawSe1PkPg&t=10m20s)).
 
 - Architected technical design workflows and tools that accelerate level design team productivity.
 

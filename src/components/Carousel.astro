@@ -28,7 +28,7 @@ const firstCaption = slides[0]?.caption ?? '';
             <button
               class="yt-facade"
               type="button"
-              data-embed={`${s.src}?autoplay=1`}
+              data-embed={`${s.src}${s.src.includes('?') ? '&' : '?'}autoplay=1`}
               style={`background-image:url('${s.thumb}')`}
               aria-label={`Play video: ${s.caption ?? title}`}
             ></button>

@@ -10,8 +10,20 @@ export function youtubeThumb(id: string): string {
   return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 }
 
-export function youtubeEmbed(id: string): string {
-  return `https://www.youtube.com/embed/${id}`;
+/** Parse a t=/start= param (510, 510s, 8m30s, 1h2m3s) into seconds. */
+export function youtubeStart(url: string): number | null {
+  const m = url.match(/[?&](?:t|start)=(\d[\dhms]*)/);
+  if (!m) return null;
+  if (/^\d+s?$/.test(m[1])) return parseInt(m[1], 10);
+  let s = 0;
+  for (const [, n, unit] of m[1].matchAll(/(\d+)([hms])/g)) {
+    s += Number(n) * (unit === 'h' ? 3600 : unit === 'm' ? 60 : 1);
+  }
+  return s || null;
+}
+
+export function youtubeEmbed(id: string, start?: number | null): string {
+  return `https://www.youtube.com/embed/${id}${start ? `?start=${start}` : ''}`;
 }
 
 /** A normalized slide for the Carousel. */
@@ -30,7 +42,7 @@ export function toSlides(
       const id = youtubeId(m.url);
       return {
         kind: 'video' as const,
-        src: id ? youtubeEmbed(id) : m.url,
+        src: id ? youtubeEmbed(id, youtubeStart(m.url)) : m.url,
         thumb: id ? youtubeThumb(id) : '',
         caption: m.caption,
       };
