@@ -1,0 +1,245 @@
+{
+  "_comment": "Content for the printable resume at /resume-print. Edit this file, reload the page, Ctrl+P -> Save as PDF. Bullet strings may contain simple HTML (e.g. <b>bold</b>). The 'page' field on experience entries and sidebar groups decides which of the two sheets it lands on - move a number to rebalance the pages.",
+
+  "name": "Jordan Watt",
+  "title": "Principal Designer · Game, Level, and Technical Design",
+  "tagline": "An analytical mind with a passion for crafting immersive experiences",
+  "location": "Vancouver, Canada",
+
+  "links": [
+    { "label": "linkedin.com/in/jwatt-001", "url": "https://www.linkedin.com/in/jwatt-001/" },
+    { "label": "buildplayiterate.com", "url": "https://buildplayiterate.com" }
+  ],
+
+  "profile": [
+    "25+ years in AAA across 20+ shipped titles",
+    "Seasoned game and technical designer with expertise in design methodology and best practices",
+    "Skilled with Unreal Engine 5 to create rich experiences via Level Design, Blueprint, GAS, and Multiplayer",
+    "Adept at feature development and planning with design, art, and engineering disciplines",
+    "Veteran developer with experience from concept to evergreen live service",
+    "Creative, analytical, team-oriented, player-centric, proactive, and versatile"
+  ],
+
+  "sidebar": [
+    {
+      "heading": "Summary",
+      "page": 1,
+      "items": [
+        "25+ Years AAA",
+        "Game and Level Design",
+        "Technical Design",
+        "Experienced Developer",
+        "Cross-Discipline Leader",
+        "Value-Driven"
+      ]
+    },
+    {
+      "heading": "Design Experience",
+      "page": 1,
+      "items": [
+        "Singleplayer",
+        "Multiplayer PvE + PvP",
+        "Character, Camera, Controls",
+        "Combat & AI",
+        "Level & World Design",
+        "Missions & Quests",
+        "Progression & Meta",
+        "Sandbox & Systems",
+        "Tutorials & Onboarding",
+        "UI + UX",
+        "Live Service & Social",
+        "Prototypes & Demos"
+      ]
+    },
+    {
+      "heading": "Dev Skills",
+      "page": 1,
+      "items": [
+        "Unreal, Unity, Godot, Frostbite",
+        "Blueprint, Python, Lua",
+        "JavaScript, Git, WWW",
+        "AI-Assisted Development",
+        "Tools & Pipelines",
+        "Feature Planning + Roadmaps",
+        "Jira, Confluence, Miro, Figma"
+      ]
+    },
+    {
+      "heading": "Shipped Credits",
+      "page": 2,
+      "sections": [
+        {
+          "label": "Design",
+          "items": [
+            "Gears of War: E-Day",
+            "Gears 5",
+            "PvZ: Battle for Neighborville",
+            "Star Wars Battlefront 2",
+            "FIFA 17",
+            "PvZ: Garden Warfare 2",
+            "Battlefield: Hardline",
+            "NFS: Rivals",
+            "Medal of Honor: Warfighter",
+            "Army of Two: Devil's Cartel",
+            "NFS: The Run",
+            "Skate 1, 2, 3, Skate-It"
+          ]
+        },
+        {
+          "label": "QA Management",
+          "items": [
+            "FIFA 2007",
+            "Battlefield 2: Modern Combat",
+            "Medal of Honor: Heroes",
+            "NFS: Most Wanted"
+          ]
+        },
+        {
+          "label": "QA",
+          "items": [
+            "NFS: Underground 2",
+            "FIFA Soccer 2005",
+            "MVP Baseball 2004",
+            "NHL 2003"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Education",
+      "page": 2,
+      "items": [
+        "DeVry Institute of Technology, 1997 - 2000",
+        "B.Sc. Electronics Engineering Technology",
+        "Microprocessors, Circuit Design, Network Communications, Signal Processing, Programming",
+        "Faculty Assistant: graded and proctored exams, supported students in lab"
+      ]
+    },
+    {
+      "heading": "Hobbies & Interests",
+      "page": 2,
+      "text": "Electronics, Gardening, Walks, Star Wars, Toys, RPGs, Board Games, Sports, Space, Science, Nature, History, Lego, Zombies"
+    }
+  ],
+
+  "experienceHeading": "Career Experience",
+
+  "experience": [
+    {
+      "page": 1,
+      "company": "Final Strike Games",
+      "role": "Principal Level Designer",
+      "dates": "2026 - Current",
+      "project": "Unannounced project",
+      "bullets": [
+        "Designing and building levels from greybox layout through gameplay iteration and polish",
+        "Collaborating across design, art, and engineering to take spaces from concept to playable"
+      ]
+    },
+    {
+      "page": 1,
+      "company": "People Can Fly",
+      "role": "Principal Technical Level Designer",
+      "dates": "2023 - 2026",
+      "project": "Gears of War: E-Day · Versus features & level design, Unreal Engine 5",
+      "bullets": [
+        "Built <b>4 multiplayer game modes</b> plus seasonal modes, with visuals, game logic, and special weapons",
+        "Supported <b>6 versus maps</b> plus seasonal maps, supporting level designers, building pipelines for map features, and creating dynamic map objects",
+        "<b>Prototyped Versus UI</b>, and partnered closely with the UX team to build gameplay-facing HUD, in-world UI elements, and map features",
+        "Architected technical workflows and tools that accelerated level design team productivity, and mentored team members on prototyping and development strategy",
+        "Created gyms and prototypes to enable engineers and artists to test and develop game mode content",
+        "Planned and validated features and roadmaps, collaborating across disciplines to identify requirements and mitigate risk"
+      ]
+    },
+    {
+      "page": 1,
+      "company": "Sumo Digital",
+      "role": "Principal Technical Designer",
+      "dates": "2021 - 2023",
+      "project": "Unannounced AAA multiplayer title, Unreal Engine 5",
+      "bullets": [
+        "Led the team responsible for delivering a deeply-integrated core gameplay feature, planning features, milestone deliverables, and roadmaps",
+        "Built comprehensive systemic prototypes in UE5 and Blueprint, coordinating design, engineering, and content teams to prove out features and inform production roadmaps",
+        "Validated and translated design intent into technical requirements and production pipelines",
+        "Provided guidance to designers on best practices in implementation, scripting, and workflows",
+        "Managed, coached, and career-planned multiple Technical Designers; helped define TD department foundations, career paths, and performance standards"
+      ]
+    },
+    {
+      "page": 1,
+      "company": "Microsoft · The Coalition",
+      "role": "Senior Game Designer (contract)",
+      "dates": "2020 - 2021",
+      "project": "Gears 5",
+      "bullets": [
+        "Designed and built multiplayer maps for PvP and PvE modes, taking them from greybox concept to release following the established Gears level design process",
+        "Configured maps for multiplayer (spawners, cinematics, cameras, navmesh, and collision) and maintained gameplay integrity through art production",
+        "Built concept prototype levels and feature gyms for an unannounced UE5 project"
+      ]
+    },
+    {
+      "page": 2,
+      "company": "EA Vancouver",
+      "role": "Senior Game Designer",
+      "dates": "2013 - 2020",
+      "project": "PvZ: Battle for Neighborville · Star Wars Battlefront 2 · FIFA 17 · Battlefield: Hardline · NFS: Rivals",
+      "bullets": [
+        "Led design of 'Monthly Activities' for PvZ: Battle for Neighborville, overseeing another designer and creating a repeatable recipe for live seasonal events",
+        "Built boss encounters scaling for 1-4 players, scripted character abilities and AI behaviors, and partnered with UX on progression systems, in-game storefronts, and game mode UI",
+        "Designed and scripted missions for Star Wars Battlefront 2; represented EA Vancouver in cross-studio collaboration with EA Motive, establishing contacts and review pipelines",
+        "Mentored and coached designers, and created processes for prototype and feature development",
+        "Prototyped environments, gameplay, UI, and systemic player tools across linear and open-world games"
+      ]
+    },
+    {
+      "page": 2,
+      "company": "EA Blackbox",
+      "role": "Game Designer",
+      "dates": "2006 - 2013",
+      "project": "Skate 1, 2, 3 · Skate-It · NFS: The Run · Medal of Honor: Warfighter · Army of Two: Devil's Cartel",
+      "bullets": [
+        "Designed and constructed challenges, levels, missions, races, and features across Skate, Need For Speed, Medal of Honor, and Army of Two",
+        "Challenge Design POC for Skate 1, 2, and 3, with an aptitude for compelling challenges and the technical workflows behind them",
+        "Designed Skate 3's Skate School tutorials featuring Coach Frank (Jason Lee), the Skate Park Editor for Skate-It NDS, and Need For Speed: The Run's Challenge Series events",
+        "Represented Skate 3 at EA's London launch showcase: media interviews, hands-on demos, and co-hosting the Hall of Meat tournament"
+      ]
+    },
+    {
+      "page": 2,
+      "company": "EA Canada",
+      "role": "QA Development Manager",
+      "dates": "2003 - 2006",
+      "bullets": [
+        "Managed <b>30+ QA testers across 10+ projects</b>, coordinating Online and Compliance testing for console and mobile titles through the online gaming revolution: PC to PS2 and PSP, and on to the launch of Xbox Online and Xbox 360",
+        "Created and led the Submission Audit Team to pre-test projects and catch critical, costly issues ahead of certification; built the test plan from EA's historical first- and third-party certification data and issued a submission confidence report per project",
+        "Oversaw the Online Clean Room originally created around my own testing work, and built lasting contacts across EA's central technology teams"
+      ]
+    },
+    {
+      "page": 2,
+      "company": "EA Canada",
+      "role": "QA Tester",
+      "dates": "2001 - 2003",
+      "bullets": [
+        "Operated the 'Online Clean Room', testing Xbox, PlayStation, and PC titles for connectivity and performance, including the EA Sports Online platform, an early framework of Ultimate Team"
+      ]
+    },
+    {
+      "page": 2,
+      "company": "Nortel Networks",
+      "role": "Cell Tower CDMA Systems Technologist",
+      "dates": "2000 - 2001",
+      "bullets": [
+        "Tested and troubleshot CDMA cell towers, running test procedures on base station transceiver units; completed floor safety and compliance certifications including ISO 9000"
+      ]
+    }
+  ],
+
+  "beyondHeading": "Beyond The Studio",
+
+  "beyond": [
+    "<b>JW Mouse Highlighter</b> (Python desktop utility, installer + system tray) and <b>Infinite Wordle</b> (Godot, exported to HTML): small tools and games built for the joy of shipping",
+    "<b>SlateShowdown.com</b> and <b>buildplayiterate.com</b>, self-built and self-hosted: automated NHL data scraping (Node, Express, React) and this portfolio (Astro, Cloudflare)",
+    "<b>Rapid Prototyping Initiative</b>: pitched augmenting EA's developers with the company's own catalog alongside a Strategic Development Director; built two games at EA's global game jam, reached the finals, and placed runner-up"
+  ]
+}

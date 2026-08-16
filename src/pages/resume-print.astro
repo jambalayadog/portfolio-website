@@ -1,0 +1,353 @@
+---
+/**
+ * Printable two-page resume.
+ *
+ * Content lives in `src/data/resume.json` — edit that file, not this one.
+ * To produce the PDF: open /resume-print, Ctrl+P, destination "Save as PDF",
+ * paper Letter, margins "None", and enable "Background graphics". Save over
+ * `public/data/Resume_JordanWatt.pdf`.
+ *
+ * Layout is two fixed 8.5x11in sheets rather than flowing content, so
+ * pagination is deterministic — nothing reflows across the page break behind
+ * your back. Move a `page` value in resume.json to rebalance the two sheets.
+ */
+import resume from '../data/resume.json';
+
+const sheets = [1, 2];
+const sidebarFor = (page: number) => resume.sidebar.filter((g) => g.page === page);
+const jobsFor = (page: number) => resume.experience.filter((j) => j.page === page);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Jordan Watt — Resume</title>
+  </head>
+  <body>
+    {sheets.map((page) => (
+      <section class="sheet">
+        <aside class="rail">
+          {page === 1 && (
+            <div class="ident">
+              <p class="ident__loc">{resume.location}</p>
+              <ul class="ident__links">
+                {resume.links.map((l) => (
+                  <li><a href={l.url}>{l.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {sidebarFor(page).map((group) => (
+            <div class="rail__group">
+              <h2 class="rail__head">{group.heading}</h2>
+
+              {'text' in group && <p class="rail__text">{group.text}</p>}
+
+              {'items' in group && (
+                <ul class="rail__list">
+                  {group.items.map((it) => <li>{it}</li>)}
+                </ul>
+              )}
+
+              {'sections' in group &&
+                group.sections.map((sub) => (
+                  <>
+                    <h3 class="rail__sub">{sub.label}</h3>
+                    <ul class="rail__list">
+                      {sub.items.map((it) => <li>{it}</li>)}
+                    </ul>
+                  </>
+                ))}
+
+              {'note' in group && <p class="rail__note">{group.note}</p>}
+            </div>
+          ))}
+        </aside>
+
+        <main class="body">
+          {page === 1 ? (
+            <header class="masthead">
+              <h1>{resume.name}</h1>
+              <p class="masthead__title">{resume.title}</p>
+              <p class="masthead__tagline">{resume.tagline}</p>
+              <ul class="profile">
+                {resume.profile.map((p) => <li>{p}</li>)}
+              </ul>
+            </header>
+          ) : (
+            <header class="runner">
+              <span>{resume.name}</span>
+              <span>{resume.title}</span>
+            </header>
+          )}
+
+          {page === 1 ? (
+            <h2 class="sec">{resume.experienceHeading}</h2>
+          ) : (
+            <div class="sec-gap" />
+          )}
+
+          {jobsFor(page).map((job) => (
+            <article class="job">
+              <div class="job__head">
+                <h3 class="job__co">{job.company}</h3>
+                <p class="job__role">{job.role}</p>
+                <p class="job__dates">{job.dates}</p>
+              </div>
+              {job.project && <p class="job__project">{job.project}</p>}
+              <ul class="job__bullets">
+                {job.bullets.map((b) => <li set:html={b} />)}
+              </ul>
+            </article>
+          ))}
+
+          {page === 2 && (
+            <>
+              <h2 class="sec">{resume.beyondHeading}</h2>
+              <ul class="job__bullets beyond">
+                {resume.beyond.map((b) => <li set:html={b} />)}
+              </ul>
+            </>
+          )}
+        </main>
+      </section>
+    ))}
+
+    <style is:global>
+      :root {
+        --ink: #16191d;
+        --ink-soft: #3d444d;
+        --ink-mute: #6b737d;
+        --accent: #1f4e6b;
+        --rule: #d3d8de;
+        --rail-bg: #f2f4f6;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #5c6470;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* --- the page --- */
+      .sheet {
+        width: 8.5in;
+        height: 11in;
+        margin: 0.35in auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 2.05in 1fr;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgb(0 0 0 / 0.35);
+      }
+
+      /* --- left rail --- */
+      .rail {
+        background: var(--rail-bg);
+        border-right: 1px solid var(--rule);
+        padding: 0.36in 0.22in 0.35in 0.3in;
+      }
+
+      .ident { margin-bottom: 16pt; }
+      .ident__loc {
+        margin: 0 0 5pt;
+        font-size: 9pt;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+      .ident__links { margin: 0; padding: 0; list-style: none; }
+      .ident__links li { margin-bottom: 2.5pt; }
+      .ident__links a {
+        font-size: 8pt;
+        color: var(--accent);
+        text-decoration: none;
+        overflow-wrap: anywhere;
+      }
+
+      .rail__group { margin-bottom: 15pt; }
+      .rail__head {
+        margin: 0 0 6pt;
+        padding-bottom: 3pt;
+        border-bottom: 1.5px solid var(--accent);
+        font-size: 8.5pt;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      /* Soft band label inside a grouped list (e.g. Design / QA under Shipped
+         Titles) — the hairline separates roles without splitting the count. */
+      .rail__sub {
+        margin: 7pt 0 3pt;
+        padding-top: 3.5pt;
+        border-top: 1px solid var(--rule);
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .rail__sub:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .rail__note {
+        margin: 6pt 0 0;
+        font-size: 7pt;
+        font-style: italic;
+        line-height: 1.35;
+        color: var(--ink-mute);
+      }
+
+      .rail__list { margin: 0; padding: 0; list-style: none; }
+      .rail__list li {
+        font-size: 8.6pt;
+        line-height: 1.42;
+        color: var(--ink-soft);
+        margin-bottom: 1.5pt;
+      }
+
+      /* --- right column --- */
+      .body { padding: 0.36in 0.42in 0.35in 0.3in; }
+
+      .masthead { margin-bottom: 10pt; }
+      .masthead h1 {
+        margin: 0;
+        font-size: 26pt;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        line-height: 1;
+      }
+      .masthead__title {
+        margin: 4pt 0 0;
+        font-size: 10pt;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--accent);
+      }
+      .masthead__tagline {
+        margin: 6pt 0 8pt;
+        padding-top: 6pt;
+        border-top: 1px solid var(--rule);
+        font-size: 9.3pt;
+        font-style: italic;
+        color: var(--ink-soft);
+      }
+
+      .profile { margin: 0; padding-left: 12pt; }
+      .profile li {
+        font-size: 8.8pt;
+        line-height: 1.36;
+        margin-bottom: 2pt;
+        color: var(--ink-soft);
+      }
+
+      .runner {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 13pt;
+        padding-bottom: 5pt;
+        border-bottom: 1px solid var(--rule);
+        font-size: 8.5pt;
+        color: var(--ink-mute);
+      }
+      .runner span:first-child { font-weight: 700; color: var(--ink); }
+
+      .sec {
+        margin: 0 0 8pt;
+        padding-bottom: 3pt;
+        border-bottom: 1.5px solid var(--accent);
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      /* Small breather where page 2 skips the repeated section header. */
+      .sec-gap { height: 4pt; }
+      .sec:not(:first-of-type) { margin-top: 10pt; }
+
+      /* --- a job --- */
+      .job { margin-bottom: 7pt; }
+      .job:last-of-type { margin-bottom: 0; }
+
+      .job__head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+        column-gap: 8pt;
+      }
+      .job__co {
+        margin: 0;
+        font-size: 10.2pt;
+        font-weight: 700;
+      }
+      .job__dates {
+        grid-row: 1;
+        grid-column: 2;
+        margin: 0;
+        font-size: 8.6pt;
+        font-weight: 600;
+        white-space: nowrap;
+        color: var(--ink-mute);
+      }
+      .job__role {
+        grid-column: 1 / -1;
+        margin: 1pt 0 0;
+        font-size: 9.3pt;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .job__project {
+        margin: 2pt 0 0;
+        font-size: 8.3pt;
+        font-style: italic;
+        color: var(--ink-mute);
+      }
+
+      .job__bullets { margin: 3.5pt 0 0; padding-left: 12pt; }
+      .job__bullets li {
+        font-size: 8.8pt;
+        line-height: 1.33;
+        margin-bottom: 1.8pt;
+        color: var(--ink-soft);
+      }
+      .job__bullets b { color: var(--ink); font-weight: 600; }
+
+      .beyond { margin-top: 0; }
+
+      .rail__text {
+        margin: 0;
+        font-size: 8.6pt;
+        line-height: 1.42;
+        color: var(--ink-soft);
+      }
+
+      /* --- print --- */
+      @page { size: letter; margin: 0; }
+
+      @media print {
+        html, body { background: #fff; }
+        .sheet {
+          margin: 0;
+          box-shadow: none;
+          break-after: page;
+        }
+        .sheet:last-child { break-after: auto; }
+        a { color: var(--accent); text-decoration: none; }
+      }
+    </style>
+  </body>
+</html>

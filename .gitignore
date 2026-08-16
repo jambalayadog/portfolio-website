@@ -26,3 +26,6 @@ Thumbs.db
 # internal planning notes — keep local, not in the public repo
 project_onboarding.md
 .claude/
+
+# job applications / cover letters — local only
+applications/
