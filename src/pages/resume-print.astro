@@ -345,7 +345,10 @@ const jobsFor = (page: number) => resume.experience.filter((j) => j.page === pag
           box-shadow: none;
           break-after: page;
         }
-        .sheet:last-child { break-after: auto; }
+        /* :last-of-type, not :last-child — in dev Astro appends its toolbar
+           element after the sheets, which broke :last-child and produced a
+           blank third page in the printed PDF. */
+        .sheet:last-of-type { break-after: auto; }
         a { color: var(--accent); text-decoration: none; }
       }
     </style>
